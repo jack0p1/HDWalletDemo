@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
           "branch": null,
-          "revision": "cec68169a048a079f461ba203fe85636548d7a89",
-          "version": "5.1.3"
+          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
+          "version": "6.5.0"
         }
       },
       {
@@ -59,9 +59,9 @@
         "package": "XCoordinator",
         "repositoryURL": "https://github.com/quickbirdstudios/XCoordinator.git",
         "state": {
-          "branch": null,
-          "revision": "4b6fc6f7359078c322e3b354854ed4ac5c12c5e1",
-          "version": "2.0.7"
+          "branch": "master",
+          "revision": "c32c2d889a80948035abd415cc08951e89446742",
+          "version": null
         }
       }
     ]

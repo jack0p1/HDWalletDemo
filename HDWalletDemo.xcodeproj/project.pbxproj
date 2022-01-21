@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA505E39279AFDDD00D322FD /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA505E38279AFDDD00D322FD /* XCoordinator */; };
+		DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA216000279B052F0076BBA0 /* XCoordinator */; };
+		DA216004279B05590076BBA0 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA216003279B05590076BBA0 /* web3swift */; };
+		DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */; };
+		DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3D279AFF8700D322FD /* UIViewController.swift */; };
 		DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF627999B2C00801F0F /* AppDelegate.swift */; };
 		DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF827999B2C00801F0F /* SceneDelegate.swift */; };
 		DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CFA27999B2C00801F0F /* MainViewController.swift */; };
 		DA696CFE27999B2C00801F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFC27999B2C00801F0F /* Main.storyboard */; };
 		DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFF27999B2D00801F0F /* Assets.xcassets */; };
 		DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */; };
-		DA696D0C279ADA3C00801F0F /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA696D0B279ADA3C00801F0F /* web3swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		DA505E3D279AFF8700D322FD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		DA696CF327999B2C00801F0F /* HDWalletDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDWalletDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA696CF627999B2C00801F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA696CF827999B2C00801F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,14 +37,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA505E39279AFDDD00D322FD /* XCoordinator in Frameworks */,
-				DA696D0C279ADA3C00801F0F /* web3swift in Frameworks */,
+				DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */,
+				DA216004279B05590076BBA0 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA505E3C279AFF7B00D322FD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA505E3D279AFF8700D322FD /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DA505E3F279AFFFC00D322FD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */,
+				DA696CF627999B2C00801F0F /* AppDelegate.swift */,
+				DA696CF827999B2C00801F0F /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DA505E40279B001700D322FD /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DA696D0427999B2D00801F0F /* Info.plist */,
+				DA696CFF27999B2D00801F0F /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		DA696CEA27999B2C00801F0F = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +91,10 @@
 		DA696CF527999B2C00801F0F /* HDWalletDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DA505E40279B001700D322FD /* Supporting files */,
+				DA505E3F279AFFFC00D322FD /* App */,
+				DA505E3C279AFF7B00D322FD /* Extensions */,
 				DA696D0D279AFC1F00801F0F /* Scenes */,
-				DA696CF627999B2C00801F0F /* AppDelegate.swift */,
-				DA696CF827999B2C00801F0F /* SceneDelegate.swift */,
-				DA696CFF27999B2D00801F0F /* Assets.xcassets */,
-				DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */,
-				DA696D0427999B2D00801F0F /* Info.plist */,
 			);
 			path = HDWalletDemo;
 			sourceTree = "<group>";
@@ -75,6 +104,7 @@
 			children = (
 				DA696CFA27999B2C00801F0F /* MainViewController.swift */,
 				DA696CFC27999B2C00801F0F /* Main.storyboard */,
+				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -96,8 +126,8 @@
 			);
 			name = HDWalletDemo;
 			packageProductDependencies = (
-				DA696D0B279ADA3C00801F0F /* web3swift */,
-				DA505E38279AFDDD00D322FD /* XCoordinator */,
+				DA216000279B052F0076BBA0 /* XCoordinator */,
+				DA216003279B05590076BBA0 /* web3swift */,
 			);
 			productName = HDWalletDemo;
 			productReference = DA696CF327999B2C00801F0F /* HDWalletDemo.app */;
@@ -128,8 +158,8 @@
 			);
 			mainGroup = DA696CEA27999B2C00801F0F;
 			packageReferences = (
-				DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */,
-				DA505E37279AFDDD00D322FD /* XCRemoteSwiftPackageReference "XCoordinator" */,
+				DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */,
+				DA216002279B05590076BBA0 /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = DA696CF427999B2C00801F0F /* Products */;
 			projectDirPath = "";
@@ -159,8 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */,
+				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
+				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "HDWalletDemo/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -292,6 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "HDWalletDemo/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -311,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CZY8WA4VU7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HDWalletDemo/Info.plist;
+				INFOPLIST_FILE = "HDWalletDemo/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -339,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CZY8WA4VU7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HDWalletDemo/Info.plist;
+				INFOPLIST_FILE = "HDWalletDemo/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -382,15 +416,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DA505E37279AFDDD00D322FD /* XCRemoteSwiftPackageReference "XCoordinator" */ = {
+		DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/quickbirdstudios/XCoordinator.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
-		DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */ = {
+		DA216002279B05590076BBA0 /* XCRemoteSwiftPackageReference "web3swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/skywinder/web3swift.git";
 			requirement = {
@@ -401,14 +435,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DA505E38279AFDDD00D322FD /* XCoordinator */ = {
+		DA216000279B052F0076BBA0 /* XCoordinator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA505E37279AFDDD00D322FD /* XCRemoteSwiftPackageReference "XCoordinator" */;
+			package = DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */;
 			productName = XCoordinator;
 		};
-		DA696D0B279ADA3C00801F0F /* web3swift */ = {
+		DA216003279B05590076BBA0 /* web3swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */;
+			package = DA216002279B05590076BBA0 /* XCRemoteSwiftPackageReference "web3swift" */;
 			productName = web3swift;
 		};
 /* End XCSwiftPackageProductDependency section */
