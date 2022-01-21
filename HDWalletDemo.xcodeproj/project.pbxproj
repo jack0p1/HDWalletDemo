@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA505E39279AFDDD00D322FD /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA505E38279AFDDD00D322FD /* XCoordinator */; };
 		DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF627999B2C00801F0F /* AppDelegate.swift */; };
 		DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF827999B2C00801F0F /* SceneDelegate.swift */; };
 		DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CFA27999B2C00801F0F /* MainViewController.swift */; };
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA505E39279AFDDD00D322FD /* XCoordinator in Frameworks */,
 				DA696D0C279ADA3C00801F0F /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +97,7 @@
 			name = HDWalletDemo;
 			packageProductDependencies = (
 				DA696D0B279ADA3C00801F0F /* web3swift */,
+				DA505E38279AFDDD00D322FD /* XCoordinator */,
 			);
 			productName = HDWalletDemo;
 			productReference = DA696CF327999B2C00801F0F /* HDWalletDemo.app */;
@@ -126,6 +129,7 @@
 			mainGroup = DA696CEA27999B2C00801F0F;
 			packageReferences = (
 				DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */,
+				DA505E37279AFDDD00D322FD /* XCRemoteSwiftPackageReference "XCoordinator" */,
 			);
 			productRefGroup = DA696CF427999B2C00801F0F /* Products */;
 			projectDirPath = "";
@@ -378,6 +382,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA505E37279AFDDD00D322FD /* XCRemoteSwiftPackageReference "XCoordinator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quickbirdstudios/XCoordinator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/skywinder/web3swift.git";
@@ -389,6 +401,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA505E38279AFDDD00D322FD /* XCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA505E37279AFDDD00D322FD /* XCRemoteSwiftPackageReference "XCoordinator" */;
+			productName = XCoordinator;
+		};
 		DA696D0B279ADA3C00801F0F /* web3swift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */;
