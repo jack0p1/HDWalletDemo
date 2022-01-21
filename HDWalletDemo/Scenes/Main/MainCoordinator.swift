@@ -21,6 +21,7 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
         switch route {
         case .main:
             let viewController: MainViewController = MainViewController.instantiate()
+            viewController.viewModel = MainViewModel(router: unownedRouter)
             return .push(viewController)
         }
     }

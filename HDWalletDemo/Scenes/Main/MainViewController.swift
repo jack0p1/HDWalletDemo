@@ -8,10 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var viewModel: MainViewModel!
     
     @IBAction func createWalletButtonTouched(_ sender: UIButton) {
         

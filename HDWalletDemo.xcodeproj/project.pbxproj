@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA216000279B052F0076BBA0 /* XCoordinator */; };
 		DA216004279B05590076BBA0 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA216003279B05590076BBA0 /* web3swift */; };
+		DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA216006279B0D9D0076BBA0 /* MainViewModel.swift */; };
 		DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */; };
 		DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3D279AFF8700D322FD /* UIViewController.swift */; };
 		DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF627999B2C00801F0F /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA216006279B0D9D0076BBA0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DA505E3D279AFF8700D322FD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		DA696CF327999B2C00801F0F /* HDWalletDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDWalletDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA216005279B0D6B0076BBA0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
+				DA696CFA27999B2C00801F0F /* MainViewController.swift */,
+				DA216006279B0D9D0076BBA0 /* MainViewModel.swift */,
+				DA696CFC27999B2C00801F0F /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		DA505E3C279AFF7B00D322FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,9 +115,7 @@
 		DA696D0D279AFC1F00801F0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				DA696CFA27999B2C00801F0F /* MainViewController.swift */,
-				DA696CFC27999B2C00801F0F /* Main.storyboard */,
-				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
+				DA216005279B0D6B0076BBA0 /* Main */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -193,6 +204,7 @@
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
+				DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
