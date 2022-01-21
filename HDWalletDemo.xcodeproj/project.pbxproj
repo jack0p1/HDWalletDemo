@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF627999B2C00801F0F /* AppDelegate.swift */; };
 		DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF827999B2C00801F0F /* SceneDelegate.swift */; };
-		DA696CFB27999B2C00801F0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CFA27999B2C00801F0F /* ViewController.swift */; };
+		DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CFA27999B2C00801F0F /* MainViewController.swift */; };
 		DA696CFE27999B2C00801F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFC27999B2C00801F0F /* Main.storyboard */; };
 		DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFF27999B2D00801F0F /* Assets.xcassets */; };
 		DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		DA696CF327999B2C00801F0F /* HDWalletDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDWalletDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA696CF627999B2C00801F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA696CF827999B2C00801F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA696CFA27999B2C00801F0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA696CFA27999B2C00801F0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DA696CFD27999B2C00801F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA696CFF27999B2D00801F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA696D0227999B2D00801F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,15 +58,23 @@
 		DA696CF527999B2C00801F0F /* HDWalletDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DA696D0D279AFC1F00801F0F /* Scenes */,
 				DA696CF627999B2C00801F0F /* AppDelegate.swift */,
 				DA696CF827999B2C00801F0F /* SceneDelegate.swift */,
-				DA696CFA27999B2C00801F0F /* ViewController.swift */,
-				DA696CFC27999B2C00801F0F /* Main.storyboard */,
 				DA696CFF27999B2D00801F0F /* Assets.xcassets */,
 				DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */,
 				DA696D0427999B2D00801F0F /* Info.plist */,
 			);
 			path = HDWalletDemo;
+			sourceTree = "<group>";
+		};
+		DA696D0D279AFC1F00801F0F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DA696CFA27999B2C00801F0F /* MainViewController.swift */,
+				DA696CFC27999B2C00801F0F /* Main.storyboard */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA696CFB27999B2C00801F0F /* ViewController.swift in Sources */,
+				DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 			);
