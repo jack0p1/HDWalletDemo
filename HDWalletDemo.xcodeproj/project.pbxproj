@@ -13,6 +13,7 @@
 		DA696CFE27999B2C00801F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFC27999B2C00801F0F /* Main.storyboard */; };
 		DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFF27999B2D00801F0F /* Assets.xcassets */; };
 		DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */; };
+		DA696D0C279ADA3C00801F0F /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA696D0B279ADA3C00801F0F /* web3swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA696D0C279ADA3C00801F0F /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = HDWalletDemo;
+			packageProductDependencies = (
+				DA696D0B279ADA3C00801F0F /* web3swift */,
+			);
 			productName = HDWalletDemo;
 			productReference = DA696CF327999B2C00801F0F /* HDWalletDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = DA696CEA27999B2C00801F0F;
+			packageReferences = (
+				DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */,
+			);
 			productRefGroup = DA696CF427999B2C00801F0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,6 +368,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skywinder/web3swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA696D0B279ADA3C00801F0F /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA696D0A279ADA3C00801F0F /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA696CEB27999B2C00801F0F /* Project object */;
 }
