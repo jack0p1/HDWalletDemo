@@ -10,6 +10,8 @@
 		DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA216000279B052F0076BBA0 /* XCoordinator */; };
 		DA216004279B05590076BBA0 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA216003279B05590076BBA0 /* web3swift */; };
 		DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA216006279B0D9D0076BBA0 /* MainViewModel.swift */; };
+		DA21600A27A0342F0076BBA0 /* CreateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21600927A0342F0076BBA0 /* CreateWalletViewController.swift */; };
+		DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21600B27A0343D0076BBA0 /* CreateWalletViewModel.swift */; };
 		DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */; };
 		DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3D279AFF8700D322FD /* UIViewController.swift */; };
 		DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF627999B2C00801F0F /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		DA216006279B0D9D0076BBA0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		DA21600927A0342F0076BBA0 /* CreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewController.swift; sourceTree = "<group>"; };
+		DA21600B27A0343D0076BBA0 /* CreateWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewModel.swift; sourceTree = "<group>"; };
 		DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DA505E3D279AFF8700D322FD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		DA696CF327999B2C00801F0F /* HDWalletDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDWalletDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,12 +54,19 @@
 		DA216005279B0D6B0076BBA0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 				DA696CFA27999B2C00801F0F /* MainViewController.swift */,
 				DA216006279B0D9D0076BBA0 /* MainViewModel.swift */,
-				DA696CFC27999B2C00801F0F /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DA21600827A034020076BBA0 /* CreateWallet */ = {
+			isa = PBXGroup;
+			children = (
+				DA21600927A0342F0076BBA0 /* CreateWalletViewController.swift */,
+				DA21600B27A0343D0076BBA0 /* CreateWalletViewModel.swift */,
+			);
+			path = CreateWallet;
 			sourceTree = "<group>";
 		};
 		DA505E3C279AFF7B00D322FD /* Extensions */ = {
@@ -104,10 +115,10 @@
 		DA696CF527999B2C00801F0F /* HDWalletDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DA505E40279B001700D322FD /* Supporting files */,
 				DA505E3F279AFFFC00D322FD /* App */,
 				DA505E3C279AFF7B00D322FD /* Extensions */,
 				DA696D0D279AFC1F00801F0F /* Scenes */,
+				DA505E40279B001700D322FD /* Supporting files */,
 			);
 			path = HDWalletDemo;
 			sourceTree = "<group>";
@@ -115,6 +126,9 @@
 		DA696D0D279AFC1F00801F0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
+				DA696CFC27999B2C00801F0F /* Main.storyboard */,
+				DA21600827A034020076BBA0 /* CreateWallet */,
 				DA216005279B0D6B0076BBA0 /* Main */,
 			);
 			path = Scenes;
@@ -200,11 +214,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */,
+				DA21600A27A0342F0076BBA0 /* CreateWalletViewController.swift in Sources */,
 				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */,
+				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +376,6 @@
 				INFOPLIST_FILE = "HDWalletDemo/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -388,7 +403,6 @@
 				INFOPLIST_FILE = "HDWalletDemo/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

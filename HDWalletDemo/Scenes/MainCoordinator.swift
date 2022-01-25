@@ -10,6 +10,7 @@ import XCoordinator
 
 enum MainFlow: Route {
     case main
+    case createWallet
 }
 
 class MainCoordinator: NavigationCoordinator<MainFlow> {
@@ -22,6 +23,11 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
         case .main:
             let viewController: MainViewController = MainViewController.instantiate()
             viewController.viewModel = MainViewModel(router: unownedRouter)
+            return .push(viewController)
+            
+        case .createWallet:
+            let viewController: CreateWalletViewController = CreateWalletViewController.instantiate()
+            viewController.viewModel = CreateWalletViewModel(router: unownedRouter)
             return .push(viewController)
         }
     }
