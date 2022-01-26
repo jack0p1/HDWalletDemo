@@ -9,9 +9,17 @@ import Foundation
 import XCoordinator
 
 class CreateWalletViewModel {
-    let router: UnownedRouter<MainFlow>
+    private let router: UnownedRouter<MainFlow>
     
     init(router: UnownedRouter<MainFlow>) {
         self.router = router
+    }
+    
+    func createWallet(password: String) {
+        
+    }
+    
+    func routeToMnemonicPhrase() {
+        
     }
 }

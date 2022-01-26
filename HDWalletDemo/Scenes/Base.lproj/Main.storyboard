@@ -61,9 +61,50 @@
                     <view key="view" contentMode="scaleToFill" id="Ix4-R7-AxI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-Th-TOa">
+                                <rect key="frame" x="30" y="94" width="174.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5y4-eo-2nz">
+                                <rect key="frame" x="30" y="183" width="90.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9k-Rl-rNf">
+                                <rect key="frame" x="160.5" y="456.5" width="93" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextPressed:" destination="CcC-X0-egp" eventType="touchUpInside" id="tpU-bb-qGh"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="BQg-YH-XVF">
+                                <rect key="frame" x="188.5" y="319.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vor-oQ-Tpw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V9k-Rl-rNf" firstAttribute="centerX" secondItem="Ix4-R7-AxI" secondAttribute="centerX" id="6xG-fO-88Y"/>
+                            <constraint firstItem="7ge-Th-TOa" firstAttribute="leading" secondItem="vor-oQ-Tpw" secondAttribute="leading" constant="30" id="JST-t4-3yG"/>
+                            <constraint firstItem="5y4-eo-2nz" firstAttribute="leading" secondItem="7ge-Th-TOa" secondAttribute="leading" id="JWM-Ws-WAK"/>
+                            <constraint firstItem="V9k-Rl-rNf" firstAttribute="centerY" secondItem="Ix4-R7-AxI" secondAttribute="centerY" constant="30" id="PPn-b0-AhV"/>
+                            <constraint firstItem="5y4-eo-2nz" firstAttribute="top" secondItem="7ge-Th-TOa" secondAttribute="bottom" constant="60" id="QE4-yM-pgq"/>
+                            <constraint firstItem="7ge-Th-TOa" firstAttribute="top" secondItem="vor-oQ-Tpw" secondAttribute="top" constant="50" id="Va4-ud-YeU"/>
+                            <constraint firstItem="BQg-YH-XVF" firstAttribute="centerX" secondItem="Ix4-R7-AxI" secondAttribute="centerX" id="hCa-fy-2w7"/>
+                            <constraint firstItem="V9k-Rl-rNf" firstAttribute="top" secondItem="BQg-YH-XVF" secondAttribute="bottom" constant="100" id="yRi-Sf-BB4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createButton" destination="V9k-Rl-rNf" id="Wzc-5Y-aFc"/>
+                        <outlet property="loadingView" destination="BQg-YH-XVF" id="DZq-eO-3dd"/>
+                        <outlet property="passwordTextField" destination="5y4-eo-2nz" id="DO2-wT-WfN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HX6-rx-fMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
