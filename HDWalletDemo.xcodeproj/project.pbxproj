@@ -21,6 +21,7 @@
 		DA696CFE27999B2C00801F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFC27999B2C00801F0F /* Main.storyboard */; };
 		DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFF27999B2D00801F0F /* Assets.xcassets */; };
 		DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */; };
+		DAA630F527A1968D004191DB /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DAA630F427A1968D004191DB /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA630F527A1968D004191DB /* KeychainSwift in Frameworks */,
 				DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */,
 				DA216004279B05590076BBA0 /* web3swift in Frameworks */,
 			);
@@ -156,6 +158,7 @@
 			packageProductDependencies = (
 				DA216000279B052F0076BBA0 /* XCoordinator */,
 				DA216003279B05590076BBA0 /* web3swift */,
+				DAA630F427A1968D004191DB /* KeychainSwift */,
 			);
 			productName = HDWalletDemo;
 			productReference = DA696CF327999B2C00801F0F /* HDWalletDemo.app */;
@@ -188,6 +191,7 @@
 			packageReferences = (
 				DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */,
 				DA216002279B05590076BBA0 /* XCRemoteSwiftPackageReference "web3swift" */,
+				DAA630F327A1968D004191DB /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = DA696CF427999B2C00801F0F /* Products */;
 			projectDirPath = "";
@@ -462,6 +466,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		DAA630F327A1968D004191DB /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -474,6 +486,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DA216002279B05590076BBA0 /* XCRemoteSwiftPackageReference "web3swift" */;
 			productName = web3swift;
+		};
+		DAA630F427A1968D004191DB /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAA630F327A1968D004191DB /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
