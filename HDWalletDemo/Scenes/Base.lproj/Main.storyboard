@@ -110,6 +110,67 @@
             </objects>
             <point key="canvasLocation" x="938" y="98"/>
         </scene>
+        <!--Mnemonic Phrase View Controller-->
+        <scene sceneID="hRv-MF-1B1">
+            <objects>
+                <viewController storyboardIdentifier="MnemonicPhraseViewController" id="orX-Vb-xaD" customClass="MnemonicPhraseViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mac-PO-4Vq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seed phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-Qw-F5C">
+                                <rect key="frame" x="30" y="94" width="129.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQl-iw-ZS2">
+                                <rect key="frame" x="30" y="183" width="354" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-cL-dnt">
+                                <rect key="frame" x="138" y="229.5" width="138.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Copy to clipboard"/>
+                                <connections>
+                                    <action selector="copyPressed:" destination="orX-Vb-xaD" eventType="touchUpInside" id="bHr-LL-2Mc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCp-tt-u0E">
+                                <rect key="frame" x="167.5" y="310.5" width="79.5" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Done">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="donePressed:" destination="orX-Vb-xaD" eventType="touchUpInside" id="sEI-eJ-AT4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tAL-c8-9YR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HQl-iw-ZS2" firstAttribute="leading" secondItem="2lo-Qw-F5C" secondAttribute="leading" id="7bh-mv-gEx"/>
+                            <constraint firstItem="HQl-iw-ZS2" firstAttribute="top" secondItem="2lo-Qw-F5C" secondAttribute="bottom" constant="60" id="8i0-ZP-VQj"/>
+                            <constraint firstItem="oCp-tt-u0E" firstAttribute="top" secondItem="pW4-cL-dnt" secondAttribute="bottom" constant="50" id="OVT-Dl-KX5"/>
+                            <constraint firstItem="2lo-Qw-F5C" firstAttribute="leading" secondItem="tAL-c8-9YR" secondAttribute="leading" constant="30" id="Q0P-Dz-FQa"/>
+                            <constraint firstItem="2lo-Qw-F5C" firstAttribute="top" secondItem="tAL-c8-9YR" secondAttribute="top" constant="50" id="Voz-d4-10u"/>
+                            <constraint firstItem="pW4-cL-dnt" firstAttribute="centerX" secondItem="Mac-PO-4Vq" secondAttribute="centerX" id="g3X-kb-HYK"/>
+                            <constraint firstItem="oCp-tt-u0E" firstAttribute="centerX" secondItem="Mac-PO-4Vq" secondAttribute="centerX" id="j9w-Ma-uMC"/>
+                            <constraint firstItem="tAL-c8-9YR" firstAttribute="trailing" secondItem="HQl-iw-ZS2" secondAttribute="trailing" constant="30" id="jac-Sk-T25"/>
+                            <constraint firstItem="pW4-cL-dnt" firstAttribute="top" secondItem="HQl-iw-ZS2" secondAttribute="bottom" constant="20" id="zsO-s5-eM0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mnemonicsLabel" destination="HQl-iw-ZS2" id="ZQi-8R-fhg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QeG-Xm-ph3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1762" y="98"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

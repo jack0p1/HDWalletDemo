@@ -24,6 +24,8 @@
 		DAA630F527A1968D004191DB /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DAA630F427A1968D004191DB /* KeychainSwift */; };
 		DAA630F827A1972D004191DB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA630F727A1972D004191DB /* DataManager.swift */; };
 		DAA630FB27A1A027004191DB /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA630FA27A1A027004191DB /* Wallet.swift */; };
+		DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */; };
+		DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		DA696D0427999B2D00801F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAA630F727A1972D004191DB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DAA630FA27A1A027004191DB /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewController.swift; sourceTree = "<group>"; };
+		DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		DA696D0D279AFC1F00801F0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DAC468FB27A2A93000893C26 /* MnemonicPhrase */,
 				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 				DA696CFC27999B2C00801F0F /* Main.storyboard */,
 				DA21600827A034020076BBA0 /* CreateWallet */,
@@ -159,6 +164,15 @@
 				DAA630FA27A1A027004191DB /* Wallet.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DAC468FB27A2A93000893C26 /* MnemonicPhrase */ = {
+			isa = PBXGroup;
+			children = (
+				DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */,
+				DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */,
+			);
+			path = MnemonicPhrase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +265,10 @@
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */,
+				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
 				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
 				DA5E14DE27A0384D00FFA107 /* Constants.swift in Sources */,
+				DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
