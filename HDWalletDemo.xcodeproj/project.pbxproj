@@ -145,12 +145,12 @@
 		DA696D0D279AFC1F00801F0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				DAC4690027A2BC3C00893C26 /* Balance */,
-				DAC468FB27A2A93000893C26 /* MnemonicPhrase */,
-				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 				DA696CFC27999B2C00801F0F /* Main.storyboard */,
-				DA21600827A034020076BBA0 /* CreateWallet */,
+				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 				DA216005279B0D6B0076BBA0 /* Start */,
+				DA21600827A034020076BBA0 /* CreateWallet */,
+				DAC468FB27A2A93000893C26 /* MnemonicPhrase */,
+				DAC4690027A2BC3C00893C26 /* Balance */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
