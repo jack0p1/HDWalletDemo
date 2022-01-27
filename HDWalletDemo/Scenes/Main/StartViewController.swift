@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  StartViewController.swift
 //  HDWalletDemo
 //
 //  Created by Jacek Kopaczel on 20/01/2022.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    var viewModel: MainViewModel!
+class StartViewController: UIViewController {
+    var viewModel: StartViewModel!
     
     @IBAction func createWalletButtonTouched(_ sender: UIButton) {
         viewModel.routeToCreateWallet()

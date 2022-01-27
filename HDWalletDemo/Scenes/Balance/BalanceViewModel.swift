@@ -1,5 +1,5 @@
 //
-//  MnemonicPhraseViewModel.swift
+//  BalanceViewModel.swift
 //  HDWalletDemo
 //
 //  Created by Jacek Kopaczel on 27/01/2022.
@@ -8,18 +8,10 @@
 import Foundation
 import XCoordinator
 
-class MnemonicPhraseViewModel {
+class BalanceViewModel {
     let router: UnownedRouter<MainFlow>
-    
-    var mnemonics: String? {
-        DataManager.shared.mnemonics
-    }
     
     init(router: UnownedRouter<MainFlow>) {
         self.router = router
-    }
-    
-    func routeToBalance() {
-        router.trigger(.balance)
     }
 }

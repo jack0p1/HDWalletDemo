@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA216000279B052F0076BBA0 /* XCoordinator */; };
 		DA216004279B05590076BBA0 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA216003279B05590076BBA0 /* web3swift */; };
-		DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA216006279B0D9D0076BBA0 /* MainViewModel.swift */; };
+		DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA216006279B0D9D0076BBA0 /* StartViewModel.swift */; };
 		DA21600A27A0342F0076BBA0 /* CreateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21600927A0342F0076BBA0 /* CreateWalletViewController.swift */; };
 		DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21600B27A0343D0076BBA0 /* CreateWalletViewModel.swift */; };
 		DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */; };
@@ -17,7 +17,7 @@
 		DA5E14DE27A0384D00FFA107 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5E14DD27A0384D00FFA107 /* Constants.swift */; };
 		DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF627999B2C00801F0F /* AppDelegate.swift */; };
 		DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CF827999B2C00801F0F /* SceneDelegate.swift */; };
-		DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CFA27999B2C00801F0F /* MainViewController.swift */; };
+		DA696CFB27999B2C00801F0F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696CFA27999B2C00801F0F /* StartViewController.swift */; };
 		DA696CFE27999B2C00801F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFC27999B2C00801F0F /* Main.storyboard */; };
 		DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA696CFF27999B2D00801F0F /* Assets.xcassets */; };
 		DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA696D0127999B2D00801F0F /* LaunchScreen.storyboard */; };
@@ -26,10 +26,12 @@
 		DAA630FB27A1A027004191DB /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA630FA27A1A027004191DB /* Wallet.swift */; };
 		DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */; };
 		DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */; };
+		DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */; };
+		DAC4690427A2BC6600893C26 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690327A2BC6600893C26 /* BalanceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA216006279B0D9D0076BBA0 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		DA216006279B0D9D0076BBA0 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		DA21600927A0342F0076BBA0 /* CreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewController.swift; sourceTree = "<group>"; };
 		DA21600B27A0343D0076BBA0 /* CreateWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewModel.swift; sourceTree = "<group>"; };
 		DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -38,7 +40,7 @@
 		DA696CF327999B2C00801F0F /* HDWalletDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDWalletDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA696CF627999B2C00801F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA696CF827999B2C00801F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA696CFA27999B2C00801F0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DA696CFA27999B2C00801F0F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DA696CFD27999B2C00801F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA696CFF27999B2D00801F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA696D0227999B2D00801F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		DAA630FA27A1A027004191DB /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewController.swift; sourceTree = "<group>"; };
 		DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewModel.swift; sourceTree = "<group>"; };
+		DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
+		DAC4690327A2BC6600893C26 /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,8 @@
 		DA216005279B0D6B0076BBA0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DA696CFA27999B2C00801F0F /* MainViewController.swift */,
-				DA216006279B0D9D0076BBA0 /* MainViewModel.swift */,
+				DA696CFA27999B2C00801F0F /* StartViewController.swift */,
+				DA216006279B0D9D0076BBA0 /* StartViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -141,6 +145,7 @@
 		DA696D0D279AFC1F00801F0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DAC4690027A2BC3C00893C26 /* Balance */,
 				DAC468FB27A2A93000893C26 /* MnemonicPhrase */,
 				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 				DA696CFC27999B2C00801F0F /* Main.storyboard */,
@@ -173,6 +178,15 @@
 				DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */,
 			);
 			path = MnemonicPhrase;
+			sourceTree = "<group>";
+		};
+		DAC4690027A2BC3C00893C26 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */,
+				DAC4690327A2BC6600893C26 /* BalanceViewModel.swift */,
+			);
+			path = Balance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,18 +270,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA696CFB27999B2C00801F0F /* MainViewController.swift in Sources */,
+				DA696CFB27999B2C00801F0F /* StartViewController.swift in Sources */,
 				DAA630F827A1972D004191DB /* DataManager.swift in Sources */,
 				DA21600A27A0342F0076BBA0 /* CreateWalletViewController.swift in Sources */,
 				DAA630FB27A1A027004191DB /* Wallet.swift in Sources */,
 				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
+				DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
-				DA216007279B0D9D0076BBA0 /* MainViewModel.swift in Sources */,
+				DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */,
 				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
 				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
 				DA5E14DE27A0384D00FFA107 /* Constants.swift in Sources */,
+				DAC4690427A2BC6600893C26 /* BalanceViewModel.swift in Sources */,
 				DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

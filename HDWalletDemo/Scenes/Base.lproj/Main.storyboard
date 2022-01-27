@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="StartViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,7 +170,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QeG-Xm-ph3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="98"/>
+            <point key="canvasLocation" x="1755" y="98"/>
+        </scene>
+        <!--Balance View Controller-->
+        <scene sceneID="W7i-W2-Lb3">
+            <objects>
+                <viewController storyboardIdentifier="BalanceViewController" id="uil-ha-M1O" customClass="BalanceViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2za-cp-u2G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGN-va-22d">
+                                <rect key="frame" x="30" y="94" width="83" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 ETH" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
+                                <rect key="frame" x="30" y="183" width="354" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VKt-Ep-MS1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VGN-va-22d" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="169-wW-ju6"/>
+                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="top" secondItem="VGN-va-22d" secondAttribute="bottom" constant="60" id="3zB-a4-HRX"/>
+                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="leading" secondItem="VGN-va-22d" secondAttribute="leading" id="f42-Jm-du7"/>
+                            <constraint firstItem="VGN-va-22d" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="r2y-5U-oJv"/>
+                            <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" secondItem="f9i-MP-Vvu" secondAttribute="trailing" constant="30" id="tTb-gq-Nyg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="balanceLabel" destination="f9i-MP-Vvu" id="g6a-d8-JN3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3qh-Mp-riN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="98"/>
         </scene>
     </scenes>
     <resources>

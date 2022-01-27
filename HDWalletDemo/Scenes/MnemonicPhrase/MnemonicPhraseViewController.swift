@@ -8,7 +8,7 @@
 import UIKit
 
 class MnemonicPhraseViewController: UIViewController {
-    @IBOutlet weak var mnemonicsLabel: UILabel!
+    @IBOutlet private weak var mnemonicsLabel: UILabel!
     
     var viewModel: MnemonicPhraseViewModel!
     

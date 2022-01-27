@@ -1,5 +1,5 @@
 //
-//  MainViewModel.swift
+//  StartViewModel.swift
 //  HDWalletDemo
 //
 //  Created by Jacek Kopaczel on 21/01/2022.
@@ -8,7 +8,7 @@
 import Foundation
 import XCoordinator
 
-class MainViewModel {
+class StartViewModel {
     private let router: UnownedRouter<MainFlow>
     
     init(router: UnownedRouter<MainFlow>) {
