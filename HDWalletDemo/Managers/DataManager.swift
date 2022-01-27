@@ -40,7 +40,7 @@ class DataManager {
     
     private init() { }
     
-    func createAccount(password: String) {
+    func createAccount(password: String, completion: @escaping () -> Void) {
         guard self.wallet == nil else { return }
         let bitsOfEntropy: Int = 256 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
         let mnemonics = try! BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
@@ -54,8 +54,10 @@ class DataManager {
         let address = keystore.addresses!.first!.address
         let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
         self.wallet = wallet
+        self.mnemonics = mnemonics
         
         initializeWeb3()
+        completion()
     }
     
     private func initializeWeb3() {
@@ -74,7 +76,9 @@ class DataManager {
         web3.addKeystoreManager(keystoreManager)
     }
     
-    private func saveWallet() {
-        
+    func resetAll() {
+//        wallet = nil
+//        mnemonics = nil
+        keychain.clear()
     }
 }

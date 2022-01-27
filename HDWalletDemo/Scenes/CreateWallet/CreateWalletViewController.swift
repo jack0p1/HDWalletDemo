@@ -21,9 +21,11 @@ class CreateWalletViewController: UIViewController {
     
     @IBAction func createPressed(_ sender: UIButton) {
         guard let password = passwordTextField.text else { return }
+        createButton.isEnabled = false
         loadingView.startAnimating()
-        DataManager.shared.createAccount(password: password)
-        viewModel.routeToMnemonicPhrase()
+        viewModel.createAccount(with: password) { [weak self] in
+            self?.loadingView.stopAnimating()
+        }
     }
 }
 

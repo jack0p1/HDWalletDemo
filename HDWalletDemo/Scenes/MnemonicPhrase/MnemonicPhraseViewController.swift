@@ -14,6 +14,8 @@ class MnemonicPhraseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         mnemonicsLabel.text = viewModel.mnemonics
     }
     
