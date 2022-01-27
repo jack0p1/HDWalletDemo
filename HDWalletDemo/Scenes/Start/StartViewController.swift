@@ -15,7 +15,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func importWalletButtonTouched(_ sender: UIButton) {
-        
+        viewModel.routeToImportWallet()
     }
 }
 

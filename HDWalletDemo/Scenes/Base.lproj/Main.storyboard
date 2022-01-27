@@ -11,7 +11,7 @@
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="StartViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="BYZ-38-t0r" customClass="StartViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,6 +210,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qh-Mp-riN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2575" y="98"/>
+        </scene>
+        <!--Import Wallet View Controller-->
+        <scene sceneID="Qlb-ga-8mM">
+            <objects>
+                <viewController storyboardIdentifier="ImportWalletViewController" id="FoB-sO-6NI" customClass="ImportWalletViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BHS-XE-NiA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter seed phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-z3-Iqw">
+                                <rect key="frame" x="30" y="273" width="186" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Seed phrase" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWm-aT-gin">
+                                <rect key="frame" x="30" y="362" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-0l-Idl">
+                                <rect key="frame" x="161" y="446" width="92" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Import">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="importPressed:" destination="FoB-sO-6NI" eventType="touchUpInside" id="qq9-CK-SUi"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-w1-nWc">
+                                <rect key="frame" x="188.5" y="309" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npM-AZ-AV2">
+                                <rect key="frame" x="30" y="94" width="175" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDX-Ls-rVF">
+                                <rect key="frame" x="30" y="183" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RgX-3d-Dfd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MWm-aT-gin" firstAttribute="leading" secondItem="1k8-z3-Iqw" secondAttribute="leading" id="07M-B4-gJq"/>
+                            <constraint firstItem="FDX-Ls-rVF" firstAttribute="top" secondItem="npM-AZ-AV2" secondAttribute="bottom" constant="60" id="0sc-kv-amB"/>
+                            <constraint firstItem="mHs-0l-Idl" firstAttribute="centerX" secondItem="BHS-XE-NiA" secondAttribute="centerX" id="4IA-LX-5Tf"/>
+                            <constraint firstItem="npM-AZ-AV2" firstAttribute="leading" secondItem="RgX-3d-Dfd" secondAttribute="leading" constant="30" id="AHt-Ma-RuZ"/>
+                            <constraint firstItem="MWm-aT-gin" firstAttribute="top" secondItem="1k8-z3-Iqw" secondAttribute="bottom" constant="60" id="Edd-7o-jkb"/>
+                            <constraint firstItem="mHs-0l-Idl" firstAttribute="top" secondItem="MWm-aT-gin" secondAttribute="bottom" constant="50" id="GrG-PK-WPe"/>
+                            <constraint firstItem="1k8-z3-Iqw" firstAttribute="top" secondItem="npM-AZ-AV2" secondAttribute="bottom" constant="150" id="QmR-1C-TaM"/>
+                            <constraint firstItem="RgX-3d-Dfd" firstAttribute="trailing" secondItem="FDX-Ls-rVF" secondAttribute="trailing" constant="30" id="RAf-TV-h7q"/>
+                            <constraint firstItem="1k8-z3-Iqw" firstAttribute="leading" secondItem="RgX-3d-Dfd" secondAttribute="leading" constant="30" id="d94-QW-UYW"/>
+                            <constraint firstItem="mHs-0l-Idl" firstAttribute="top" secondItem="FaS-w1-nWc" secondAttribute="bottom" constant="100" id="ePA-Qa-NrN"/>
+                            <constraint firstItem="FDX-Ls-rVF" firstAttribute="leading" secondItem="npM-AZ-AV2" secondAttribute="leading" id="iFU-bX-aSL"/>
+                            <constraint firstItem="npM-AZ-AV2" firstAttribute="top" secondItem="RgX-3d-Dfd" secondAttribute="top" constant="50" id="jak-W9-308"/>
+                            <constraint firstItem="FaS-w1-nWc" firstAttribute="centerX" secondItem="BHS-XE-NiA" secondAttribute="centerX" id="jp9-8P-8Ei"/>
+                            <constraint firstItem="RgX-3d-Dfd" firstAttribute="trailing" secondItem="MWm-aT-gin" secondAttribute="trailing" constant="30" id="wDg-Vv-KQI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="importButton" destination="mHs-0l-Idl" id="0ZM-4f-fph"/>
+                        <outlet property="loadingView" destination="FaS-w1-nWc" id="Vgp-iL-JxU"/>
+                        <outlet property="passwordTextField" destination="FDX-Ls-rVF" id="S0o-tP-MYP"/>
+                        <outlet property="seedPhraseTextField" destination="MWm-aT-gin" id="PGN-xY-t1g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANs-Os-8xi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="789"/>
         </scene>
     </scenes>
     <resources>

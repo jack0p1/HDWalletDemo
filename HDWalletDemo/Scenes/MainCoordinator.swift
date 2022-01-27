@@ -11,6 +11,7 @@ import XCoordinator
 enum MainFlow: Route {
     case start
     case createWallet
+    case importWallet
     case mnemonicPhrase
     case balance
 }
@@ -33,6 +34,11 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
             viewController.viewModel = CreateWalletViewModel(router: unownedRouter)
             return .push(viewController)
             
+        case .importWallet:
+            let viewController: ImportWalletViewController = ImportWalletViewController.instantiate()
+            viewController.viewModel = ImportWalletViewModel(router: unownedRouter)
+            return .push(viewController)
+            
         case .mnemonicPhrase:
             let viewController: MnemonicPhraseViewController = MnemonicPhraseViewController.instantiate()
             viewController.viewModel = MnemonicPhraseViewModel(router: unownedRouter)
@@ -41,7 +47,8 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
         case .balance:
             let viewController: BalanceViewController = BalanceViewController.instantiate()
             viewController.viewModel = BalanceViewModel(router: unownedRouter)
-            return .push(viewController)
+            viewController.modalPresentationStyle = .fullScreen
+            return .present(viewController)
         }
     }
 }

@@ -16,12 +16,10 @@ class CreateWalletViewModel {
     }
     
     func createAccount(with password: String, completion: @escaping () -> Void) {
-        DispatchQueue.global(qos: .utility).async {
-            DataManager.shared.createAccount(password: password) {
-                DispatchQueue.main.async {
-                    completion()
-                    self.routeToMnemonicPhrase()
-                }
+        DataManager.shared.createWallet(password: password) {
+            DispatchQueue.main.async { [weak self] in
+                self?.routeToMnemonicPhrase()
+                completion()
             }
         }
     }

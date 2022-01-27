@@ -18,4 +18,8 @@ class StartViewModel {
     func routeToCreateWallet() {
         router.trigger(.createWallet)
     }
+    
+    func routeToImportWallet() {
+        router.trigger(.importWallet)
+    }
 }

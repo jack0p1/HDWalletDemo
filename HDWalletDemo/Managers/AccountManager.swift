@@ -13,6 +13,7 @@ class AccountManager {
     
     private let walletKey = "wallet"
     private let mnemonicsKey = "mnemonics"
+    private let passwordKey = "password"
     private let keychain = KeychainSwift()
     
     private init() { }
@@ -36,6 +37,16 @@ class AccountManager {
         set {
             guard let mnemonics = newValue else { return }
             keychain.set(mnemonics, forKey: mnemonicsKey)
+        }
+    }
+    
+    var password: String? {
+        get {
+            return keychain.get(passwordKey)
+        }
+        set {
+            guard let password = newValue else { return }
+            keychain.set(password, forKey: passwordKey)
         }
     }
 }

@@ -20,23 +20,11 @@ class BalanceViewModel {
     }
     
     func getBalance() {
-        guard let wallet = AccountManager.shared.wallet else { return }
-        
-        let retrieveBalance = {
-            DataManager.shared.getBalance(for: wallet.address) { [weak self] in
-                guard let balance = $0 else { return }
-                DispatchQueue.main.async {
-                    self?.balance.send(balance + " ETH")
-                }
+        DataManager.shared.getBalance() { [weak self] in
+            guard let balance = $0 else { return }
+            DispatchQueue.main.async {
+                self?.balance.send(balance + " ETH")
             }
-        }
-        
-        if DataManager.shared.web3Instance == nil {
-            DataManager.shared.initializeWeb3 {
-                retrieveBalance()
-            }
-        } else {
-            retrieveBalance()
         }
     }
 }
