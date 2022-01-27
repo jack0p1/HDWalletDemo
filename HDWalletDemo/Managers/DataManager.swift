@@ -18,9 +18,15 @@ class DataManager {
     private init() { }
     
     func initializeWeb3(completion: @escaping (() -> Void)) {
-        DispatchQueue.global(qos: .utility).async {
-            self.web3Instance = web3(provider: Web3HttpProvider(URL(string: Constants.ropstenEndpoint)!)!)
-            completion()
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            self?.web3Instance = web3(provider: Web3HttpProvider(URL(string: Constants.ropstenEndpoint)!)!)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
         }
     }
     
@@ -29,7 +35,14 @@ class DataManager {
         guard AccountManager.shared.wallet == nil else { return }
         
         let create = {
+            let group = DispatchGroup()
+            group.enter()
             self.createWallet(with: password)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
         }
         
         if web3Instance == nil {
@@ -39,15 +52,20 @@ class DataManager {
         } else {
             create()
         }
-        
-        completion()
     }
     
     func importWallet(password: String, phrase: String, completion: @escaping () -> Void) {
         guard AccountManager.shared.wallet == nil else { return }
         
         let retrieveWallet = {
+            let group = DispatchGroup()
+            group.enter()
             self.importWallet(password: password, phrase: phrase)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
         }
         
         if web3Instance == nil {
@@ -57,29 +75,36 @@ class DataManager {
         } else {
             retrieveWallet()
         }
-        
-        completion()
     }
     
     func getBalance(completion: @escaping (String?) -> Void) {
         guard let wallet = AccountManager.shared.wallet,
               let address = EthereumAddress(wallet.address) else { return }
         
-        let retrieveBalance = {
-            if let balanceResult = try? self.web3Instance?.eth.getBalance(address: address) {
-                completion(Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 3))
-            } else {
-                completion(nil)
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            let retrieveBalance = {
+                let group = DispatchGroup()
+                group.enter()
+                let balanceResult = try? self?.web3Instance?.eth.getBalance(address: address)
+                group.leave()
+                
+                group.notify(queue: .main) {
+                    if balanceResult != nil {
+                        completion(Web3.Utils.formatToEthereumUnits(balanceResult!, toUnits: .eth, decimals: 3))
+                    } else {
+                        completion(nil)
+                    }
+                }
             }
-        }
-        
-        if web3Instance == nil {
-            initializeWeb3 {
+            
+            if self?.web3Instance == nil {
+                self?.initializeWeb3 {
+                    retrieveBalance()
+                }
+            } else {
                 retrieveBalance()
             }
-        } else {
-            retrieveBalance()
-        }        
+        }
     }
     
     // MARK: - Private methods
