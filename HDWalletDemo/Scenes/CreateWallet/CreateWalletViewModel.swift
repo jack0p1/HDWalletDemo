@@ -15,10 +15,6 @@ class CreateWalletViewModel {
         self.router = router
     }
     
-    func createWallet(password: String) {
-        
-    }
-    
     func routeToMnemonicPhrase() {
         
     }

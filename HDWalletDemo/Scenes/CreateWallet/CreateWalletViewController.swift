@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import web3swift
 
 class CreateWalletViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -21,8 +20,10 @@ class CreateWalletViewController: UIViewController {
     }
     
     @IBAction func createPressed(_ sender: UIButton) {
+        guard let password = passwordTextField.text else { return }
         loadingView.startAnimating()
-        
+        DataManager.shared.createAccount(password: password)
+        viewModel.routeToMnemonicPhrase()
     }
 }
 
