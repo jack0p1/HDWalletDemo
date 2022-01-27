@@ -28,6 +28,7 @@
 		DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */; };
 		DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */; };
 		DAC4690427A2BC6600893C26 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690327A2BC6600893C26 /* BalanceViewModel.swift */; };
+		DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690527A2E83B00893C26 /* AccountManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewModel.swift; sourceTree = "<group>"; };
 		DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		DAC4690327A2BC6600893C26 /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
+		DAC4690527A2E83B00893C26 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA630F727A1972D004191DB /* DataManager.swift */,
+				DAC4690527A2E83B00893C26 /* AccountManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
 				DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
+				DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */,

@@ -17,7 +17,7 @@ enum MainFlow: Route {
 
 class MainCoordinator: NavigationCoordinator<MainFlow> {
     init() {
-        let initialRoute: MainFlow = (DataManager.shared.wallet != nil && DataManager.shared.mnemonics != nil) ? .balance : .start
+        let initialRoute: MainFlow = (AccountManager.shared.wallet != nil && AccountManager.shared.mnemonics != nil) ? .balance : .start
         super.init(initialRoute: initialRoute)
     }
     

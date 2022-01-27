@@ -12,7 +12,7 @@ class MnemonicPhraseViewModel {
     let router: UnownedRouter<MainFlow>
     
     var mnemonics: String? {
-        DataManager.shared.mnemonics
+        AccountManager.shared.mnemonics
     }
     
     init(router: UnownedRouter<MainFlow>) {
