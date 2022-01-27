@@ -67,13 +67,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA216005279B0D6B0076BBA0 /* Main */ = {
+		DA216005279B0D6B0076BBA0 /* Start */ = {
 			isa = PBXGroup;
 			children = (
 				DA696CFA27999B2C00801F0F /* StartViewController.swift */,
 				DA216006279B0D9D0076BBA0 /* StartViewModel.swift */,
 			);
-			path = Main;
+			path = Start;
 			sourceTree = "<group>";
 		};
 		DA21600827A034020076BBA0 /* CreateWallet */ = {
@@ -150,7 +150,7 @@
 				DA505E3A279AFEDD00D322FD /* MainCoordinator.swift */,
 				DA696CFC27999B2C00801F0F /* Main.storyboard */,
 				DA21600827A034020076BBA0 /* CreateWallet */,
-				DA216005279B0D6B0076BBA0 /* Main */,
+				DA216005279B0D6B0076BBA0 /* Start */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
