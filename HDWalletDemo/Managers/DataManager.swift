@@ -51,33 +51,17 @@ class DataManager {
     }
     
     func getBalance(completion: @escaping (String?) -> Void) {
-        guard let wallet = AccountManager.shared.wallet,
-              let address = EthereumAddress(wallet.address) else { return }
-        
-        DispatchQueue.global(qos: .utility).async { [weak self] in
             let retrieveBalance = {
-                let group = DispatchGroup()
-                group.enter()
-                let balanceResult = try? self?.web3Instance?.eth.getBalance(address: address)
-                group.leave()
-                
-                group.notify(queue: .main) {
-                    if balanceResult != nil {
-                        completion(Web3.Utils.formatToEthereumUnits(balanceResult!, toUnits: .eth, decimals: 3))
-                    } else {
-                        completion(nil)
-                    }
-                }
+                self._getBalance(completion: completion)
             }
             
-            if self?.web3Instance == nil {
-                self?.initializeWeb3 {
+            if web3Instance == nil {
+                initializeWeb3 {
                     retrieveBalance()
                 }
             } else {
                 retrieveBalance()
             }
-        }
     }
     
     // MARK: - Private methods
@@ -148,6 +132,25 @@ class DataManager {
             
             group.notify(queue: .main) {
                 completion()
+            }
+        }
+    }
+    
+    private func _getBalance(completion: @escaping (String?) -> Void) {
+        guard let wallet = AccountManager.shared.wallet,
+              let address = EthereumAddress(wallet.address) else { return }
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            let balanceResult = try? self?.web3Instance?.eth.getBalance(address: address)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                if balanceResult != nil {
+                    completion(Web3.Utils.formatToEthereumUnits(balanceResult!, toUnits: .eth, decimals: 3))
+                } else {
+                    completion(nil)
+                }
             }
         }
     }
