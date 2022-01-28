@@ -17,32 +17,12 @@ class DataManager {
     
     private init() { }
     
-    func initializeWeb3(completion: @escaping (() -> Void)) {
-        DispatchQueue.global(qos: .utility).async { [weak self] in
-            let group = DispatchGroup()
-            group.enter()
-            self?.web3Instance = web3(provider: Web3HttpProvider(URL(string: Constants.ropstenEndpoint)!)!)
-            group.leave()
-            
-            group.notify(queue: .main) {
-                completion()
-            }
-        }
-    }
-    
     // MARK: - Public methods
-    func createWallet(password: String, completion: @escaping () -> Void) {
+    func createWallet(with password: String, completion: @escaping () -> Void) {
         guard AccountManager.shared.wallet == nil else { return }
         
         let create = {
-            let group = DispatchGroup()
-            group.enter()
-            self.createWallet(with: password)
-            group.leave()
-            
-            group.notify(queue: .main) {
-                completion()
-            }
+            self._createWallet(with: password, completion: completion)
         }
         
         if web3Instance == nil {
@@ -58,14 +38,7 @@ class DataManager {
         guard AccountManager.shared.wallet == nil else { return }
         
         let retrieveWallet = {
-            let group = DispatchGroup()
-            group.enter()
-            self.importWallet(password: password, phrase: phrase)
-            group.leave()
-            
-            group.notify(queue: .main) {
-                completion()
-            }
+            self._importWallet(password: password, phrase: phrase, completion: completion)
         }
         
         if web3Instance == nil {
@@ -108,41 +81,74 @@ class DataManager {
     }
     
     // MARK: - Private methods
-    private func createWallet(with password: String) {
-        let bitsOfEntropy: Int = 256 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
-        let mnemonics = try! BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
-        let keystore = try! BIP32Keystore(
-            mnemonics: mnemonics,
-            password: password,
-            mnemonicsPassword: "",
-            language: .english)!
-        let name = "HD Wallet"
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
-        AccountManager.shared.wallet = wallet
-        AccountManager.shared.mnemonics = mnemonics
-        AccountManager.shared.password = password
-        
-        let keystoreManager = KeystoreManager([keystore])
-        web3Instance?.addKeystoreManager(keystoreManager)
+    private func initializeWeb3(completion: @escaping (() -> Void)) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            self?.web3Instance = web3(provider: Web3HttpProvider(URL(string: Constants.ropstenEndpoint)!)!)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
+        }
     }
     
-    private func importWallet(password: String, phrase: String) {
-        let keystore = try! BIP32Keystore(
-            mnemonics: phrase,
-            password: password,
-            mnemonicsPassword: "",
-            language: .english)!
-        let name = "HD Wallet"
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
-        AccountManager.shared.mnemonics = phrase
-        AccountManager.shared.wallet = wallet
-        AccountManager.shared.password = password
-        
-        let keystoreManager = KeystoreManager([keystore])
-        web3Instance?.addKeystoreManager(keystoreManager)
+    private func _createWallet(with password: String, completion: @escaping () -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            let bitsOfEntropy: Int = 256 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
+            let mnemonics = try! BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
+            let keystore = try! BIP32Keystore(
+                mnemonics: mnemonics,
+                password: password,
+                mnemonicsPassword: "",
+                language: .english)!
+            let name = "HD Wallet"
+            let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+            let address = keystore.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            
+            AccountManager.shared.wallet = wallet
+            AccountManager.shared.mnemonics = mnemonics
+            AccountManager.shared.password = password
+            
+            let keystoreManager = KeystoreManager([keystore])
+            self?.web3Instance?.addKeystoreManager(keystoreManager)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
+        }
+    }
+    
+    private func _importWallet(password: String, phrase: String, completion: @escaping () -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            let keystore = try! BIP32Keystore(
+                mnemonics: phrase,
+                password: password,
+                mnemonicsPassword: "",
+                language: .english)!
+            let name = "HD Wallet"
+            let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+            let address = keystore.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            
+            AccountManager.shared.mnemonics = phrase
+            AccountManager.shared.wallet = wallet
+            AccountManager.shared.password = password
+            
+            let keystoreManager = KeystoreManager([keystore])
+            self?.web3Instance?.addKeystoreManager(keystoreManager)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
+        }
     }
 }
