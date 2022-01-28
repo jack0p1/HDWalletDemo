@@ -1,0 +1,45 @@
+//
+//  WalletsViewModel.swift
+//  HDWalletDemo
+//
+//  Created by Jacek Kopaczel on 28/01/2022.
+//
+
+import XCoordinator
+import UIKit
+
+class WalletsViewModel: NSObject {
+    private let router: UnownedRouter<MainFlow>
+    
+    var wallets: [Wallet] {
+        AccountManager.shared.allWallets
+    }
+    
+    init(router: UnownedRouter<MainFlow>) {
+        self.router = router
+    }
+}
+
+extension WalletsViewModel: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension WalletsViewModel: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        wallets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WalletsTableViewCell.self)) as? WalletsTableViewCell,
+              let wallet = wallets[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        cell.title = wallet.name
+        cell.address = wallet.address
+        
+        return cell
+    }
+}

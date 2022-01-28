@@ -89,7 +89,7 @@ class DataManager {
                 password: password,
                 mnemonicsPassword: "",
                 language: .english)!
-            let name = "HD Wallet"
+            let name = "Wallet 1"
             let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
             let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
@@ -97,6 +97,7 @@ class DataManager {
             AccountManager.shared.wallet = wallet
             AccountManager.shared.mnemonics = mnemonics
             AccountManager.shared.password = password
+            AccountManager.shared.allWallets = [wallet]
             
             let keystoreManager = KeystoreManager([keystore])
             self?.web3Instance?.addKeystoreManager(keystoreManager)
@@ -117,7 +118,7 @@ class DataManager {
                 password: password,
                 mnemonicsPassword: "",
                 language: .english)!
-            let name = "HD Wallet"
+            let name = "Wallet 1"
             let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
             let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
@@ -125,6 +126,7 @@ class DataManager {
             AccountManager.shared.mnemonics = phrase
             AccountManager.shared.wallet = wallet
             AccountManager.shared.password = password
+            AccountManager.shared.allWallets = [wallet]
             
             let keystoreManager = KeystoreManager([keystore])
             self?.web3Instance?.addKeystoreManager(keystoreManager)

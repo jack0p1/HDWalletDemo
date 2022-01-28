@@ -15,6 +15,7 @@ enum MainFlow: Route {
     case mnemonicPhrase
     case balance
     case sendBalance
+    case wallets
 }
 
 class MainCoordinator: NavigationCoordinator<MainFlow> {
@@ -54,6 +55,11 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
         case .sendBalance:
             let viewController: SendBalanceViewController = SendBalanceViewController.instantiate()
             viewController.viewModel = SendBalanceViewModel(router: unownedRouter)
+            return .push(viewController)
+            
+        case .wallets:
+            let viewController: WalletsViewController = WalletsViewController.instantiate()
+            viewController.viewModel = WalletsViewModel(router: unownedRouter)
             return .push(viewController)
         }
     }

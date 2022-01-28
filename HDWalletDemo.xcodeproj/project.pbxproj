@@ -33,6 +33,11 @@
 		DAC4690B27A32A8900893C26 /* ImportWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690A27A32A8900893C26 /* ImportWalletViewModel.swift */; };
 		DAC4690E27A406DB00893C26 /* SendBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690D27A406DB00893C26 /* SendBalanceViewController.swift */; };
 		DAC4691027A406E400893C26 /* SendBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690F27A406E400893C26 /* SendBalanceViewModel.swift */; };
+		DAC4691327A4136D00893C26 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691227A4136D00893C26 /* WalletsViewController.swift */; };
+		DAC4691527A4137400893C26 /* WalletsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691427A4137400893C26 /* WalletsViewModel.swift */; };
+		DAC4691A27A41F3400893C26 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691827A41F3400893C26 /* WalletsTableViewCell.swift */; };
+		DAC4691B27A41F3400893C26 /* WalletsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */; };
+		DAC4691F27A42A4A00893C26 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691E27A42A4A00893C26 /* Collection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +66,11 @@
 		DAC4690A27A32A8900893C26 /* ImportWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewModel.swift; sourceTree = "<group>"; };
 		DAC4690D27A406DB00893C26 /* SendBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBalanceViewController.swift; sourceTree = "<group>"; };
 		DAC4690F27A406E400893C26 /* SendBalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBalanceViewModel.swift; sourceTree = "<group>"; };
+		DAC4691227A4136D00893C26 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
+		DAC4691427A4137400893C26 /* WalletsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewModel.swift; sourceTree = "<group>"; };
+		DAC4691827A41F3400893C26 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
+		DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsTableViewCell.xib; sourceTree = "<group>"; };
+		DAC4691E27A42A4A00893C26 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				DA505E3D279AFF8700D322FD /* UIViewController.swift */,
+				DAC4691E27A42A4A00893C26 /* Collection.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 				DA21600827A034020076BBA0 /* CreateWallet */,
 				DAC4690727A32A5B00893C26 /* ImportWallet */,
 				DAC468FB27A2A93000893C26 /* MnemonicPhrase */,
+				DAC4691127A4135400893C26 /* Wallets */,
 				DAC4690027A2BC3C00893C26 /* Balance */,
 				DAC4690C27A406C100893C26 /* SendBalance */,
 			);
@@ -218,6 +230,17 @@
 				DAC4690F27A406E400893C26 /* SendBalanceViewModel.swift */,
 			);
 			path = SendBalance;
+			sourceTree = "<group>";
+		};
+		DAC4691127A4135400893C26 /* Wallets */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4691227A4136D00893C26 /* WalletsViewController.swift */,
+				DAC4691427A4137400893C26 /* WalletsViewModel.swift */,
+				DAC4691827A41F3400893C26 /* WalletsTableViewCell.swift */,
+				DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */,
+			);
+			path = Wallets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC4691B27A41F3400893C26 /* WalletsTableViewCell.xib in Resources */,
 				DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */,
 				DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */,
 				DA696CFE27999B2C00801F0F /* Main.storyboard in Resources */,
@@ -307,6 +331,7 @@
 				DAA630FB27A1A027004191DB /* Wallet.swift in Sources */,
 				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
 				DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */,
+				DAC4691327A4136D00893C26 /* WalletsViewController.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
@@ -315,10 +340,13 @@
 				DAC4690B27A32A8900893C26 /* ImportWalletViewModel.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */,
 				DAC4691027A406E400893C26 /* SendBalanceViewModel.swift in Sources */,
+				DAC4691F27A42A4A00893C26 /* Collection.swift in Sources */,
 				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
+				DAC4691A27A41F3400893C26 /* WalletsTableViewCell.swift in Sources */,
 				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
 				DA5E14DE27A0384D00FFA107 /* Constants.swift in Sources */,
 				DAC4690427A2BC6600893C26 /* BalanceViewModel.swift in Sources */,
+				DAC4691527A4137400893C26 /* WalletsViewModel.swift in Sources */,
 				DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */,
 				DAC4690927A32A7800893C26 /* ImportWalletViewController.swift in Sources */,
 			);

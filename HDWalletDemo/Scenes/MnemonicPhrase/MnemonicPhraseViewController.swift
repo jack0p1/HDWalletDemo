@@ -24,6 +24,6 @@ class MnemonicPhraseViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
-        viewModel.routeToBalance()
+        viewModel.routeToWallets()
     }
 }

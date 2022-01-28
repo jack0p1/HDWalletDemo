@@ -16,15 +16,10 @@ class CreateWalletViewModel {
     }
     
     func createAccount(with password: String, completion: @escaping () -> Void) {
-        DataManager.shared.createWallet(with: password) {
-            DispatchQueue.main.async { [weak self] in
-                self?.routeToMnemonicPhrase()
-                completion()
-            }
-        }
+        DataManager.shared.createWallet(with: password, completion: completion)
     }
     
-    private func routeToMnemonicPhrase() {
+    func routeToMnemonicPhrase() {
         router.trigger(.mnemonicPhrase)
     }
 }

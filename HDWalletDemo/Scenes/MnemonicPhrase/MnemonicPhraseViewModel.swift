@@ -19,7 +19,7 @@ class MnemonicPhraseViewModel {
         self.router = router
     }
     
-    func routeToBalance() {
-        router.trigger(.balance)
+    func routeToWallets() {
+        router.trigger(.wallets)
     }
 }

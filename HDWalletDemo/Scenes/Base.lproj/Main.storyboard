@@ -174,6 +174,36 @@
             </objects>
             <point key="canvasLocation" x="1755" y="98"/>
         </scene>
+        <!--Wallets View Controller-->
+        <scene sceneID="7of-GX-BZa">
+            <objects>
+                <viewController storyboardIdentifier="WalletsViewController" id="wTX-2w-cyP" customClass="WalletsViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ZR-dM-c9a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-H8-iN8">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tzE-DU-Fj3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qxE-H8-iN8" firstAttribute="top" secondItem="tzE-DU-Fj3" secondAttribute="top" constant="20" id="BeY-Td-hYq"/>
+                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="trailing" secondItem="qxE-H8-iN8" secondAttribute="trailing" constant="20" id="PzV-nS-9Qs"/>
+                            <constraint firstItem="qxE-H8-iN8" firstAttribute="leading" secondItem="tzE-DU-Fj3" secondAttribute="leading" constant="20" id="USN-lr-J4T"/>
+                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="20" id="b86-rw-PPc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="qxE-H8-iN8" id="rJP-wd-aPN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRn-pC-wHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2655" y="98"/>
+        </scene>
         <!--Balance View Controller-->
         <scene sceneID="W7i-W2-Lb3">
             <objects>
@@ -224,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qh-Mp-riN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="98"/>
+            <point key="canvasLocation" x="3529" y="98"/>
         </scene>
         <!--Import Wallet View Controller-->
         <scene sceneID="Qlb-ga-8mM">
@@ -357,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPw-Av-Nrm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3433" y="98"/>
+            <point key="canvasLocation" x="4439" y="98"/>
         </scene>
     </scenes>
     <resources>

@@ -32,6 +32,7 @@ class CreateWalletViewController: UIViewController {
         loadingView.startAnimating()
         viewModel.createAccount(with: password) { [weak self] in
             self?.loadingView.stopAnimating()
+            self?.viewModel.routeToMnemonicPhrase()
         }
     }
 }

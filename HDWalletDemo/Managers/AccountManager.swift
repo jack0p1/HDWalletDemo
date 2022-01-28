@@ -18,6 +18,8 @@ class AccountManager {
     
     private init() { }
     
+    var allWallets = [Wallet]()
+    
     var wallet: Wallet? {
         get {
             guard let data = keychain.getData(walletKey) else { return nil }

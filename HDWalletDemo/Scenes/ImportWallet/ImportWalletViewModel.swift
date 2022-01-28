@@ -16,15 +16,10 @@ class ImportWalletViewModel {
     }
     
     func importWallet(password: String, phrase: String, completion: @escaping () -> Void) {
-        DataManager.shared.importWallet(password: password, phrase: phrase) {
-            DispatchQueue.main.async { [weak self] in
-                self?.routeToBalance()
-                completion()
-            }
-        }
+        DataManager.shared.importWallet(password: password, phrase: phrase, completion: completion)
     }
     
-    private func routeToBalance() {
-        router.trigger(.balance)
+    func routeToWallets() {
+        router.trigger(.wallets)
     }
 }

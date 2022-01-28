@@ -35,6 +35,7 @@ class ImportWalletViewController: UIViewController {
         loadingView.startAnimating()
         viewModel.importWallet(password: password, phrase: seedPhrase) { [weak self] in
             self?.loadingView.stopAnimating()
+            self?.viewModel.routeToWallets()
         }
     }
 }
