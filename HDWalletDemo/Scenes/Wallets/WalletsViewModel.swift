@@ -22,7 +22,9 @@ class WalletsViewModel: NSObject {
 
 extension WalletsViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let wallet = wallets[safe: indexPath.row] else { return }
+        router.trigger(.balance(address: wallet.address))
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -32,7 +34,7 @@ extension WalletsViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WalletsTableViewCell.self)) as? WalletsTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WalletsTableViewCell.self), for: indexPath) as? WalletsTableViewCell,
               let wallet = wallets[safe: indexPath.row] else {
             return UITableViewCell()
         }

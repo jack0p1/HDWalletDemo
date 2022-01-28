@@ -13,14 +13,14 @@ enum MainFlow: Route {
     case createWallet
     case importWallet
     case mnemonicPhrase
-    case balance
+    case balance(address: String)
     case sendBalance
     case wallets
 }
 
 class MainCoordinator: NavigationCoordinator<MainFlow> {
     init() {
-        let initialRoute: MainFlow = (AccountManager.shared.wallet != nil && AccountManager.shared.mnemonics != nil) ? .balance : .start
+        let initialRoute: MainFlow = (AccountManager.shared.wallet != nil && AccountManager.shared.mnemonics != nil) ? .wallets : .start
         super.init(initialRoute: initialRoute)
     }
     
@@ -46,10 +46,9 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
             viewController.viewModel = MnemonicPhraseViewModel(router: unownedRouter)
             return .push(viewController)
             
-        case .balance:
+        case .balance(let address):
             let viewController: BalanceViewController = BalanceViewController.instantiate()
-            viewController.viewModel = BalanceViewModel(router: unownedRouter)
-            viewController.modalPresentationStyle = .fullScreen
+            viewController.viewModel = BalanceViewModel(router: unownedRouter, address: address)
             return .present(viewController)
             
         case .sendBalance:

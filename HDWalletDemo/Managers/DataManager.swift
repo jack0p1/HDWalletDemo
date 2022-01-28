@@ -50,9 +50,9 @@ class DataManager {
         }
     }
     
-    func getBalance(completion: @escaping (String?) -> Void) {
+    func getBalance(for address: String, completion: @escaping (String?) -> Void) {
             let retrieveBalance = {
-                self._getBalance(completion: completion)
+                self._getBalance(address: address, completion: completion)
             }
             
             if web3Instance == nil {
@@ -138,9 +138,8 @@ class DataManager {
         }
     }
     
-    private func _getBalance(completion: @escaping (String?) -> Void) {
-        guard let wallet = AccountManager.shared.wallet,
-              let address = EthereumAddress(wallet.address) else { return }
+    private func _getBalance(address: String, completion: @escaping (String?) -> Void) {
+        guard let address = EthereumAddress(address) else { return }
         DispatchQueue.global(qos: .utility).async { [weak self] in
             let group = DispatchGroup()
             group.enter()

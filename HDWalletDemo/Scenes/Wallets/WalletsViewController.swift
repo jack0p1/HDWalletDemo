@@ -16,5 +16,7 @@ class WalletsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
+        let name = String(describing: WalletsTableViewCell.self)
+        tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: name)
     }
 }

@@ -12,15 +12,17 @@ import Combine
 
 class BalanceViewModel {
     private let router: UnownedRouter<MainFlow>
+    private let address: String
     
     var balance = PassthroughSubject<String, Never>()
     
-    init(router: UnownedRouter<MainFlow>) {
+    init(router: UnownedRouter<MainFlow>, address: String) {
         self.router = router
+        self.address = address
     }
     
     func getBalance() {
-        DataManager.shared.getBalance() { [weak self] in
+        DataManager.shared.getBalance(for: address) { [weak self] in
             guard let balance = $0 else { return }
             DispatchQueue.main.async {
                 self?.balance.send(balance + " ETH")
