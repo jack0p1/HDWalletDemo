@@ -18,5 +18,11 @@ class WalletsViewController: UIViewController {
         tableView.dataSource = viewModel
         let name = String(describing: WalletsTableViewCell.self)
         tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: name)
+        setupView()
+    }
+    
+    private func setupView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Your wallets"
     }
 }
