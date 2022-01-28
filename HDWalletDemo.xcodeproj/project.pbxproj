@@ -31,6 +31,8 @@
 		DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690527A2E83B00893C26 /* AccountManager.swift */; };
 		DAC4690927A32A7800893C26 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690827A32A7800893C26 /* ImportWalletViewController.swift */; };
 		DAC4690B27A32A8900893C26 /* ImportWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690A27A32A8900893C26 /* ImportWalletViewModel.swift */; };
+		DAC4690E27A406DB00893C26 /* SendBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690D27A406DB00893C26 /* SendBalanceViewController.swift */; };
+		DAC4691027A406E400893C26 /* SendBalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690F27A406E400893C26 /* SendBalanceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		DAC4690527A2E83B00893C26 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		DAC4690827A32A7800893C26 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		DAC4690A27A32A8900893C26 /* ImportWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewModel.swift; sourceTree = "<group>"; };
+		DAC4690D27A406DB00893C26 /* SendBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBalanceViewController.swift; sourceTree = "<group>"; };
+		DAC4690F27A406E400893C26 /* SendBalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBalanceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 				DAC4690727A32A5B00893C26 /* ImportWallet */,
 				DAC468FB27A2A93000893C26 /* MnemonicPhrase */,
 				DAC4690027A2BC3C00893C26 /* Balance */,
+				DAC4690C27A406C100893C26 /* SendBalance */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -204,6 +209,15 @@
 				DAC4690A27A32A8900893C26 /* ImportWalletViewModel.swift */,
 			);
 			path = ImportWallet;
+			sourceTree = "<group>";
+		};
+		DAC4690C27A406C100893C26 /* SendBalance */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4690D27A406DB00893C26 /* SendBalanceViewController.swift */,
+				DAC4690F27A406E400893C26 /* SendBalanceViewModel.swift */,
+			);
+			path = SendBalance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +311,10 @@
 				DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
+				DAC4690E27A406DB00893C26 /* SendBalanceViewController.swift in Sources */,
 				DAC4690B27A32A8900893C26 /* ImportWalletViewModel.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */,
+				DAC4691027A406E400893C26 /* SendBalanceViewModel.swift in Sources */,
 				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
 				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
 				DA5E14DE27A0384D00FFA107 /* Constants.swift in Sources */,

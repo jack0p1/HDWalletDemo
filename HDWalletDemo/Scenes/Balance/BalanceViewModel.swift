@@ -11,7 +11,7 @@ import web3swift
 import Combine
 
 class BalanceViewModel {
-    let router: UnownedRouter<MainFlow>
+    private let router: UnownedRouter<MainFlow>
     
     var balance = PassthroughSubject<String, Never>()
     
@@ -26,5 +26,9 @@ class BalanceViewModel {
                 self?.balance.send(balance + " ETH")
             }
         }
+    }
+    
+    func routeToSendBalance() {
+        router.trigger(.sendBalance)
     }
 }

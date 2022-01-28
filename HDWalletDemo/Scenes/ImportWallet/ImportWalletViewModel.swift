@@ -9,7 +9,7 @@ import Foundation
 import XCoordinator
 
 class ImportWalletViewModel {
-    let router: UnownedRouter<MainFlow>
+    private let router: UnownedRouter<MainFlow>
     
     init(router: UnownedRouter<MainFlow>) {
         self.router = router

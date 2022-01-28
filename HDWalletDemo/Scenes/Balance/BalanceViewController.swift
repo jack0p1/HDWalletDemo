@@ -27,4 +27,8 @@ class BalanceViewController: UIViewController {
             }
             .store(in: &subscriptions)
     }
+    
+    @IBAction func sendBalancePressed(_ sender: UIButton) {
+        viewModel.routeToSendBalance()
+    }
 }
