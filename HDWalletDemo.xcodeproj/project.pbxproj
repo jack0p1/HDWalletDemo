@@ -582,8 +582,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/skywinder/web3swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		DAA630F327A1968D004191DB /* XCRemoteSwiftPackageReference "keychain-swift" */ = {

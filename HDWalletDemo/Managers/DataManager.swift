@@ -67,22 +67,60 @@ class DataManager {
     func importChildWallet(privateKey: String, completion: @escaping () -> Void) {
         guard let password = AccountManager.shared.password else { return }
         
-        let formattedKey = privateKey.trimmingCharacters(in: .whitespacesAndNewlines)
-        let dataKey = Data.fromHex(formattedKey)!
-        let keystore = try! EthereumKeystoreV3(privateKey: dataKey, password: password)!
-        let name = "Wallet \(AccountManager.shared.allWallets.count + 1)"
-        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
-        let address = keystore.addresses!.first!.address
-        let wallet = Wallet(address: address, data: keyData, name: name, isHD: false)
-        
-        AccountManager.shared.allWallets.append(wallet)
-        
-        let keystoreManager = KeystoreManager([keystore])
-        self.web3Instance?.addKeystoreManager(keystoreManager)
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            let formattedKey = privateKey.trimmingCharacters(in: .whitespacesAndNewlines)
+            let dataKey = Data.fromHex(formattedKey)!
+            let keystore = try! EthereumKeystoreV3(privateKey: dataKey, password: password)!
+            let name = "Wallet \(AccountManager.shared.allWallets.count + 1) (imported)"
+            let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+            let address = keystore.addresses!.first!.address
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: false, isImported: true)
+            
+            AccountManager.shared.allWallets.append(wallet)
+            
+            let keystoreManager = KeystoreManager([keystore])
+            self?.web3Instance?.addKeystoreManager(keystoreManager)
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
+        }
     }
     
-    func createChildWallet() {
+    func createChildWallet(completion: @escaping () -> Void) {
+        guard let password = AccountManager.shared.password,
+              let wallet = AccountManager.shared.wallet else { return }
         
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            do {
+                let keystore = BIP32Keystore(wallet.data!)!
+                try keystore.createNewChildAccount(password: password)
+                let keyData = try JSONEncoder().encode(keystore.keystoreParams)
+                let updatedWallet = Wallet(address: wallet.address, data: keyData, name: wallet.name, isHD: wallet.isHD, isImported: wallet.isImported)
+                
+                AccountManager.shared.wallet = updatedWallet
+                
+                let keystoreManager = KeystoreManager([keystore])
+                self?.web3Instance?.addKeystoreManager(keystoreManager)
+                
+                let newWalletAddress = keystore.paths["m/44\'/60\'/0\'/0/\((keystore.addresses?.count ?? 1) - 1)"]!.address
+                let name = "Wallet \(AccountManager.shared.allWallets.count + 1)"
+                let newChildWallet = Wallet(address: newWalletAddress, data: nil, name: name, isHD: false, isImported: false)
+                AccountManager.shared.allWallets.append(newChildWallet)
+            } catch(let error) {
+                print(error.localizedDescription)
+            }
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
+        }
     }
     
     // MARK: - Private methods
@@ -113,7 +151,7 @@ class DataManager {
             let name = "Wallet 1"
             let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
-            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true, isImported: false)
             
             AccountManager.shared.wallet = wallet
             AccountManager.shared.mnemonics = mnemonics
@@ -142,7 +180,7 @@ class DataManager {
             let name = "Wallet 1"
             let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
             let address = keystore.addresses!.first!.address
-            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true)
+            let wallet = Wallet(address: address, data: keyData, name: name, isHD: true, isImported: false)
             
             AccountManager.shared.mnemonics = phrase
             AccountManager.shared.wallet = wallet

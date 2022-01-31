@@ -19,8 +19,8 @@ class WalletsViewModel: NSObject {
         self.router = router
     }
     
-    func createChildWallet() {
-        
+    func createChildWallet(completion: @escaping () -> Void) {
+        DataManager.shared.createChildWallet(completion: completion)
     }
     
     func routeToImportWallet() {

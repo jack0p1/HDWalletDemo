@@ -24,9 +24,7 @@ class BalanceViewModel {
     func getBalance() {
         DataManager.shared.getBalance(for: address) { [weak self] in
             guard let balance = $0 else { return }
-            DispatchQueue.main.async {
-                self?.balance.send(balance + " ETH")
-            }
+            self?.balance.send(balance + " ETH")
         }
     }
     

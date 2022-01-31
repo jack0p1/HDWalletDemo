@@ -211,12 +211,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="A43-K6-WbC">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tzE-DU-Fj3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="QtL-9Y-7lO" secondAttribute="bottom" constant="70" id="21j-VW-weE"/>
+                            <constraint firstItem="A43-K6-WbC" firstAttribute="centerY" secondItem="7ZR-dM-c9a" secondAttribute="centerY" id="BEI-Ha-Oqt"/>
                             <constraint firstItem="qxE-H8-iN8" firstAttribute="top" secondItem="tzE-DU-Fj3" secondAttribute="top" id="BeY-Td-hYq"/>
+                            <constraint firstItem="A43-K6-WbC" firstAttribute="centerX" secondItem="7ZR-dM-c9a" secondAttribute="centerX" id="KHf-TO-pEk"/>
                             <constraint firstItem="tzE-DU-Fj3" firstAttribute="trailing" secondItem="qxE-H8-iN8" secondAttribute="trailing" id="PzV-nS-9Qs"/>
                             <constraint firstItem="qxE-H8-iN8" firstAttribute="leading" secondItem="tzE-DU-Fj3" secondAttribute="leading" id="USN-lr-J4T"/>
                             <constraint firstItem="QtL-9Y-7lO" firstAttribute="top" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="35" id="ZnZ-IU-co0"/>
@@ -225,6 +230,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="XyH-j6-VAU" id="Fg0-wd-UQu"/>
+                        <outlet property="loadingView" destination="A43-K6-WbC" id="kEZ-jU-XSw"/>
                         <outlet property="tableView" destination="qxE-H8-iN8" id="rJP-wd-aPN"/>
                     </connections>
                 </viewController>

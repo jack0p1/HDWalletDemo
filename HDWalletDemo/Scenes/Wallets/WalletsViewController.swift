@@ -9,6 +9,8 @@ import UIKit
 
 class WalletsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var createButton: UIButton!
     
     var viewModel: WalletsViewModel!
     
@@ -32,7 +34,13 @@ class WalletsViewController: UIViewController {
     }
     
     @IBAction func createPressed(_ sender: UIButton) {
-        
+        createButton.isEnabled = false
+        loadingView.startAnimating()
+        viewModel.createChildWallet { [weak self] in
+            self?.createButton.isEnabled = true
+            self?.loadingView.stopAnimating()
+            self?.tableView.reloadData()
+        }
     }
     
     @IBAction func importPressed(_ sender: UIButton) {
