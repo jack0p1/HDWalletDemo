@@ -50,7 +50,7 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
         case .balance(let address):
             let viewController: BalanceViewController = BalanceViewController.instantiate()
             viewController.viewModel = BalanceViewModel(router: unownedRouter, address: address)
-            return .present(viewController)
+            return .push(viewController)
             
         case .sendBalance:
             let viewController: SendBalanceViewController = SendBalanceViewController.instantiate()
