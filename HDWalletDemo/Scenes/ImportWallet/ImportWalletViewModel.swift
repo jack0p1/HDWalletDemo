@@ -22,10 +22,14 @@ class ImportWalletViewModel {
     }
     
     func importChildWallet(privateKey: String, completion: @escaping () -> Void) {
-        
+        DataManager.shared.importChildWallet(privateKey: privateKey, completion: completion)
     }
     
     func routeToWallets() {
         router.trigger(.wallets)
+    }
+    
+    func routeBack() {
+        router.trigger(.back)
     }
 }

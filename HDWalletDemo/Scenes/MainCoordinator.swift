@@ -16,6 +16,7 @@ enum MainFlow: Route {
     case balance(address: String)
     case sendBalance
     case wallets
+    case back
 }
 
 class MainCoordinator: NavigationCoordinator<MainFlow> {
@@ -60,6 +61,9 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
             let viewController: WalletsViewController = WalletsViewController.instantiate()
             viewController.viewModel = WalletsViewModel(router: unownedRouter)
             return .push(viewController)
+            
+        case .back:
+            return .pop()
         }
     }
 }

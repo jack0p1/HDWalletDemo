@@ -49,6 +49,7 @@ class ImportWalletViewController: UIViewController {
             guard let privateKey = passwordTextField.text else { return }
             viewModel.importChildWallet(privateKey: privateKey) { [weak self] in
                 self?.loadingView.stopAnimating()
+                self?.viewModel.routeBack()
             }
         } else {
             guard let password = passwordTextField.text,
