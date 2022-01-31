@@ -18,6 +18,14 @@ class WalletsViewModel: NSObject {
     init(router: UnownedRouter<MainFlow>) {
         self.router = router
     }
+    
+    func createChildWallet() {
+        
+    }
+    
+    func routeToImportWallet() {
+        router.trigger(.importWallet(isAddingChildWallet: true))
+    }
 }
 
 extension WalletsViewModel: UITableViewDelegate {

@@ -11,6 +11,11 @@ class WalletsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var viewModel: WalletsViewModel!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,5 +29,13 @@ class WalletsViewController: UIViewController {
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Your wallets"
+    }
+    
+    @IBAction func createPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func importPressed(_ sender: UIButton) {
+        viewModel.routeToImportWallet()
     }
 }

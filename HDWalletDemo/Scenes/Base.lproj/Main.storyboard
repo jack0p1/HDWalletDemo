@@ -141,10 +141,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCp-tt-u0E">
-                                <rect key="frame" x="167.5" y="310.5" width="79.5" height="43"/>
+                                <rect key="frame" x="169.5" y="310.5" width="75" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Done">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="donePressed:" destination="orX-Vb-xaD" eventType="touchUpInside" id="sEI-eJ-AT4"/>
@@ -183,17 +183,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-H8-iN8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QtL-9Y-7lO">
+                                <rect key="frame" x="33" y="747" width="348" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyH-j6-VAU">
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Create a wallet">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="createPressed:" destination="wTX-2w-cyP" eventType="touchUpInside" id="jRa-3c-nH3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOG-bb-Wuv">
+                                        <rect key="frame" x="184" y="0.0" width="164" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Import a wallet">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="importPressed:" destination="wTX-2w-cyP" eventType="touchUpInside" id="DsL-KJ-XlD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tzE-DU-Fj3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="QtL-9Y-7lO" secondAttribute="bottom" constant="70" id="21j-VW-weE"/>
                             <constraint firstItem="qxE-H8-iN8" firstAttribute="top" secondItem="tzE-DU-Fj3" secondAttribute="top" id="BeY-Td-hYq"/>
                             <constraint firstItem="tzE-DU-Fj3" firstAttribute="trailing" secondItem="qxE-H8-iN8" secondAttribute="trailing" id="PzV-nS-9Qs"/>
                             <constraint firstItem="qxE-H8-iN8" firstAttribute="leading" secondItem="tzE-DU-Fj3" secondAttribute="leading" id="USN-lr-J4T"/>
-                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="qxE-H8-iN8" secondAttribute="bottom" id="b86-rw-PPc"/>
+                            <constraint firstItem="QtL-9Y-7lO" firstAttribute="top" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="35" id="ZnZ-IU-co0"/>
+                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="150" id="b86-rw-PPc"/>
+                            <constraint firstItem="QtL-9Y-7lO" firstAttribute="centerX" secondItem="7ZR-dM-c9a" secondAttribute="centerX" id="kOF-La-uQh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -225,10 +253,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4R-JZ-5op">
-                                <rect key="frame" x="125" y="309.5" width="164.5" height="43"/>
+                                <rect key="frame" x="130.5" y="309.5" width="153.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send balance">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="sendBalancePressed:" destination="uil-ha-M1O" eventType="touchUpInside" id="sc3-5w-Djc"/>
@@ -276,10 +304,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-0l-Idl">
-                                <rect key="frame" x="161" y="446" width="92" height="43"/>
+                                <rect key="frame" x="164" y="446" width="86.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Import">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="importPressed:" destination="FoB-sO-6NI" eventType="touchUpInside" id="qq9-CK-SUi"/>
@@ -322,6 +350,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createPasswordLabel" destination="npM-AZ-AV2" id="5k8-Sx-NFi"/>
+                        <outlet property="enterSeedLabel" destination="1k8-z3-Iqw" id="Jdl-KE-X3n"/>
                         <outlet property="importButton" destination="mHs-0l-Idl" id="0ZM-4f-fph"/>
                         <outlet property="loadingView" destination="FaS-w1-nWc" id="Vgp-iL-JxU"/>
                         <outlet property="passwordTextField" destination="FDX-Ls-rVF" id="S0o-tP-MYP"/>

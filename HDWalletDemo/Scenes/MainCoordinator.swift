@@ -11,7 +11,7 @@ import XCoordinator
 enum MainFlow: Route {
     case start
     case createWallet
-    case importWallet
+    case importWallet(isAddingChildWallet: Bool)
     case mnemonicPhrase
     case balance(address: String)
     case sendBalance
@@ -36,9 +36,9 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
             viewController.viewModel = CreateWalletViewModel(router: unownedRouter)
             return .push(viewController)
             
-        case .importWallet:
+        case .importWallet(let isChild):
             let viewController: ImportWalletViewController = ImportWalletViewController.instantiate()
-            viewController.viewModel = ImportWalletViewModel(router: unownedRouter)
+            viewController.viewModel = ImportWalletViewModel(router: unownedRouter, isAddingChildWallet: isChild)
             return .push(viewController)
             
         case .mnemonicPhrase:

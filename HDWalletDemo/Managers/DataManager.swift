@@ -64,6 +64,27 @@ class DataManager {
             }
     }
     
+    func importChildWallet(privateKey: String, completion: @escaping () -> Void) {
+        guard let password = AccountManager.shared.password else { return }
+        
+        let formattedKey = privateKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        let dataKey = Data.fromHex(formattedKey)!
+        let keystore = try! EthereumKeystoreV3(privateKey: dataKey, password: password)!
+        let name = "Wallet \(AccountManager.shared.allWallets.count + 1)"
+        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)
+        let address = keystore.addresses!.first!.address
+        let wallet = Wallet(address: address, data: keyData, name: name, isHD: false)
+        
+        AccountManager.shared.allWallets.append(wallet)
+        
+        let keystoreManager = KeystoreManager([keystore])
+        self.web3Instance?.addKeystoreManager(keystoreManager)
+    }
+    
+    func createChildWallet() {
+        
+    }
+    
     // MARK: - Private methods
     private func initializeWeb3(completion: @escaping (() -> Void)) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
