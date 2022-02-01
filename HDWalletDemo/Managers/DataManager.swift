@@ -174,7 +174,7 @@ class DataManager {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let group = DispatchGroup()
             group.enter()
-            self?.web3Instance = web3(provider: Web3HttpProvider(URL(string: Constants.ropstenEndpoint)!)!)
+            self?.web3Instance = web3(provider: Web3HttpProvider(URL(string: Constants.nodeEndpoint)!)!)
             group.leave()
             
             group.notify(queue: .main) {
