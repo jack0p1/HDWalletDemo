@@ -38,6 +38,7 @@ class SendBalanceViewController: UIViewController {
         
         viewModel.sendBalance(to: destination, amount: amount) { [weak self] in
             self?.loadingView.stopAnimating()
+            self?.viewModel.routeBack()
         }
     }
 }

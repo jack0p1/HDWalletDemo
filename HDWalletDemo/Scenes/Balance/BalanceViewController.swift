@@ -10,6 +10,7 @@ import Combine
 
 class BalanceViewController: UIViewController {
     @IBOutlet private weak var balanceLabel: UILabel!
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     
     var viewModel: BalanceViewModel!
     private var subscriptions = Set<AnyCancellable>()
@@ -17,19 +18,25 @@ class BalanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
-        viewModel.getBalance()
         setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadingView.startAnimating()
+        viewModel.getBalance()
     }
     
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = viewModel.walletName
+        title = viewModel.wallet.name
     }
     
     private func setupBinding() {
         viewModel.balance
             .sink { [weak self] in
                 self?.balanceLabel.text = $0
+                self?.loadingView.stopAnimating()
             }
             .store(in: &subscriptions)
     }

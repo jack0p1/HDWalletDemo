@@ -98,7 +98,7 @@ class DataManager {
             let group = DispatchGroup()
             group.enter()
             do {
-                let keystore = BIP32Keystore(wallet.data!)!
+                let keystore = BIP32Keystore(wallet.data)!
                 try keystore.createNewChildAccount(password: password)
                 let keyData = try JSONEncoder().encode(keystore.keystoreParams)
                 let updatedWallet = Wallet(address: wallet.address, data: keyData, name: wallet.name, isHD: wallet.isHD, isImported: wallet.isImported)
@@ -110,11 +110,57 @@ class DataManager {
                 
                 let newWalletAddress = keystore.paths["m/44\'/60\'/0\'/0/\((keystore.addresses?.count ?? 1) - 1)"]!.address
                 let name = "Wallet \(AccountManager.shared.allWallets.count + 1)"
-                let newChildWallet = Wallet(address: newWalletAddress, data: nil, name: name, isHD: false, isImported: false)
+                let newChildWallet = Wallet(address: newWalletAddress, data: keyData, name: name, isHD: false, isImported: false)
                 AccountManager.shared.allWallets.append(newChildWallet)
-            } catch(let error) {
+            } catch {
                 print(error.localizedDescription)
             }
+            group.leave()
+            
+            group.notify(queue: .main) {
+                completion()
+            }
+        }
+    }
+    
+    func sendEth(from wallet: Wallet, to destination: String, amount: String, completion: @escaping () -> Void) {
+        guard let password = AccountManager.shared.password else { return }
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let group = DispatchGroup()
+            group.enter()
+            
+            let keystoreManager: KeystoreManager
+            if wallet.isImported {
+                let keystore = EthereumKeystoreV3(wallet.data)!
+                keystoreManager = KeystoreManager([keystore])
+            } else {
+                let keystore = BIP32Keystore(wallet.data)!
+                keystoreManager = KeystoreManager([keystore])
+            }
+            self?.web3Instance?.addKeystoreManager(keystoreManager)
+            
+            let walletAddress = EthereumAddress(wallet.address)! // Your wallet address
+            let toAddress = EthereumAddress(destination)!
+            let contract = self?.web3Instance?.contract(Web3.Utils.coldWalletABI, at: toAddress, abiVersion: 2)!
+            let amount = Web3.Utils.parseToBigUInt(amount, units: .eth)
+            var options = TransactionOptions.defaultOptions
+            options.value = amount
+            options.from = walletAddress
+            options.gasPrice = .automatic
+            options.gasLimit = .automatic
+            let tx = contract?.write(
+                "fallback",
+                parameters: [AnyObject](),
+                extraData: Data(),
+                transactionOptions: options)!
+            
+            do {
+                let _ = try tx?.send(password: password)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
             group.leave()
             
             group.notify(queue: .main) {
@@ -207,7 +253,7 @@ class DataManager {
             
             group.notify(queue: .main) {
                 if balanceResult != nil {
-                    completion(Web3.Utils.formatToEthereumUnits(balanceResult!, toUnits: .eth, decimals: 3))
+                    completion(Web3.Utils.formatToEthereumUnits(balanceResult!, toUnits: .eth, decimals: 4))
                 } else {
                     completion(nil)
                 }

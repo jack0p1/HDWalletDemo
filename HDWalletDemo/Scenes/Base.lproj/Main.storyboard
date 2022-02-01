@@ -247,7 +247,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum (ETH): -.-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum (ETH): -" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
                                 <rect key="frame" x="30" y="94" width="354" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -263,6 +263,9 @@
                                     <action selector="sendBalancePressed:" destination="uil-ha-M1O" eventType="touchUpInside" id="sc3-5w-Djc"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WvV-mL-RzF">
+                                <rect key="frame" x="188.5" y="331" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VKt-Ep-MS1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -270,12 +273,15 @@
                             <constraint firstItem="h4R-JZ-5op" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="13K-8y-UCQ"/>
                             <constraint firstItem="f9i-MP-Vvu" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="EJb-a6-Xr8"/>
                             <constraint firstItem="f9i-MP-Vvu" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="Z7M-m4-VxS"/>
+                            <constraint firstItem="WvV-mL-RzF" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="c9u-aJ-fC4"/>
                             <constraint firstItem="h4R-JZ-5op" firstAttribute="centerY" secondItem="2za-cp-u2G" secondAttribute="centerY" id="ceE-51-xAq"/>
+                            <constraint firstItem="h4R-JZ-5op" firstAttribute="top" secondItem="WvV-mL-RzF" secondAttribute="bottom" constant="60" id="cnf-2Q-r0d"/>
                             <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" secondItem="f9i-MP-Vvu" secondAttribute="trailing" constant="30" id="tTb-gq-Nyg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="f9i-MP-Vvu" id="g6a-d8-JN3"/>
+                        <outlet property="loadingView" destination="WvV-mL-RzF" id="M4g-nQ-D5j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qh-Mp-riN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -380,7 +386,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-Oc-tZ2">
-                                <rect key="frame" x="168" y="400" width="78" height="43"/>
+                                <rect key="frame" x="168" y="408.5" width="78" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
@@ -390,7 +396,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="TNL-yq-WcI">
-                                <rect key="frame" x="188.5" y="263" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="271.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount (in ETH)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obZ-pj-OT6">
                                 <rect key="frame" x="30" y="227" width="171.5" height="29"/>
@@ -403,23 +409,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network fees apply." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-ax-0tU">
+                                <rect key="frame" x="30" y="358" width="354" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qWU-Su-4Sk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OSa-ax-0tU" firstAttribute="leading" secondItem="qWU-Su-4Sk" secondAttribute="leading" constant="30" id="58L-ki-wTW"/>
                             <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="obZ-pj-OT6" secondAttribute="trailing" constant="30" id="6fC-xd-gIV"/>
                             <constraint firstItem="zeh-Oc-tZ2" firstAttribute="top" secondItem="TNL-yq-WcI" secondAttribute="bottom" constant="100" id="8uX-Cr-303"/>
                             <constraint firstItem="Yax-X5-gxh" firstAttribute="leading" secondItem="qWU-Su-4Sk" secondAttribute="leading" constant="30" id="Gmj-P8-KNC"/>
+                            <constraint firstItem="OSa-ax-0tU" firstAttribute="top" secondItem="NnD-uf-B7x" secondAttribute="bottom" constant="8" id="JN5-rV-rGf"/>
                             <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yax-X5-gxh" secondAttribute="trailing" constant="30" id="MV3-us-n2X"/>
                             <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" secondItem="gXI-Kh-3rI" secondAttribute="trailing" constant="30" id="PNu-qO-SuF"/>
+                            <constraint firstItem="zeh-Oc-tZ2" firstAttribute="top" secondItem="OSa-ax-0tU" secondAttribute="bottom" constant="30" id="XhA-I9-Jvl"/>
                             <constraint firstItem="NnD-uf-B7x" firstAttribute="top" secondItem="obZ-pj-OT6" secondAttribute="bottom" constant="60" id="YTA-bU-OOl"/>
                             <constraint firstItem="gXI-Kh-3rI" firstAttribute="top" secondItem="Yax-X5-gxh" secondAttribute="bottom" constant="60" id="ZAW-Qn-sqi"/>
                             <constraint firstItem="NnD-uf-B7x" firstAttribute="leading" secondItem="obZ-pj-OT6" secondAttribute="leading" id="a24-XW-Tay"/>
                             <constraint firstItem="obZ-pj-OT6" firstAttribute="top" secondItem="gXI-Kh-3rI" secondAttribute="bottom" constant="60" id="efG-uS-vzz"/>
-                            <constraint firstItem="zeh-Oc-tZ2" firstAttribute="top" secondItem="NnD-uf-B7x" secondAttribute="bottom" constant="50" id="fLF-sv-X6C"/>
                             <constraint firstItem="zeh-Oc-tZ2" firstAttribute="centerX" secondItem="REg-Vo-ql3" secondAttribute="centerX" id="h5C-x4-sL9"/>
                             <constraint firstItem="obZ-pj-OT6" firstAttribute="leading" secondItem="gXI-Kh-3rI" secondAttribute="leading" id="kat-Sd-gyt"/>
                             <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" secondItem="NnD-uf-B7x" secondAttribute="trailing" constant="30" id="kp4-Ib-y7t"/>
+                            <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" secondItem="OSa-ax-0tU" secondAttribute="trailing" constant="30" id="kpk-pt-6DW"/>
                             <constraint firstItem="gXI-Kh-3rI" firstAttribute="leading" secondItem="Yax-X5-gxh" secondAttribute="leading" id="oja-IR-5cu"/>
                             <constraint firstItem="Yax-X5-gxh" firstAttribute="top" secondItem="qWU-Su-4Sk" secondAttribute="top" id="wpV-Zq-vTt"/>
                             <constraint firstItem="TNL-yq-WcI" firstAttribute="centerX" secondItem="REg-Vo-ql3" secondAttribute="centerX" id="yyQ-mO-EOn"/>

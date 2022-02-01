@@ -12,25 +12,23 @@ import Combine
 
 class BalanceViewModel {
     private let router: UnownedRouter<MainFlow>
-    private let address: String
     
-    let walletName: String
+    let wallet: Wallet
     var balance = PassthroughSubject<String, Never>()
     
-    init(router: UnownedRouter<MainFlow>, address: String, walletName: String) {
+    init(router: UnownedRouter<MainFlow>, wallet: Wallet) {
         self.router = router
-        self.address = address
-        self.walletName = walletName
+        self.wallet = wallet
     }
     
     func getBalance() {
-        DataManager.shared.getBalance(for: address) { [weak self] in
+        DataManager.shared.getBalance(for: wallet.address) { [weak self] in
             guard let balance = $0 else { return }
             self?.balance.send("Ethereum (ETH): " + balance)
         }
     }
     
     func routeToSendBalance() {
-        router.trigger(.sendBalance)
+        router.trigger(.sendBalance(wallet: wallet))
     }
 }

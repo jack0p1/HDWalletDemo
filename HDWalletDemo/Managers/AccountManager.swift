@@ -27,7 +27,9 @@ class AccountManager {
         }
         set {
             let data = try! JSONEncoder().encode(newValue)
-            keychain.set(data, forKey: allWalletsKeys)
+            if !keychain.set(data, forKey: allWalletsKeys) {
+                print("Couldn't save all wallets.")
+            }
         }
     }
     
@@ -39,7 +41,9 @@ class AccountManager {
         }
         set {
             let data = try! JSONEncoder().encode(newValue)
-            keychain.set(data, forKey: walletKey)
+            if !keychain.set(data, forKey: walletKey) {
+                print("Couldn't save a wallet.")
+            }
         }
     }
     
@@ -49,7 +53,9 @@ class AccountManager {
         }
         set {
             guard let mnemonics = newValue else { return }
-            keychain.set(mnemonics, forKey: mnemonicsKey)
+            if !keychain.set(mnemonics, forKey: mnemonicsKey) {
+                print("Couldn't save mnemonics.")
+            }
         }
     }
     
@@ -59,7 +65,9 @@ class AccountManager {
         }
         set {
             guard let password = newValue else { return }
-            keychain.set(password, forKey: passwordKey)
+            if !keychain.set(password, forKey: passwordKey) {
+                print("Couldn't save a password.")
+            }
         }
     }
 }

@@ -13,8 +13,8 @@ enum MainFlow: Route {
     case createWallet
     case importWallet(isAddingChildWallet: Bool)
     case mnemonicPhrase
-    case balance(address: String, name: String)
-    case sendBalance
+    case balance(wallet: Wallet)
+    case sendBalance(wallet: Wallet)
     case wallets
     case back
 }
@@ -47,14 +47,14 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
             viewController.viewModel = MnemonicPhraseViewModel(router: unownedRouter)
             return .push(viewController)
             
-        case let .balance(address, name):
+        case let .balance(wallet):
             let viewController: BalanceViewController = BalanceViewController.instantiate()
-            viewController.viewModel = BalanceViewModel(router: unownedRouter, address: address, walletName: name)
+            viewController.viewModel = BalanceViewModel(router: unownedRouter, wallet: wallet)
             return .push(viewController)
             
-        case .sendBalance:
+        case .sendBalance(let wallet):
             let viewController: SendBalanceViewController = SendBalanceViewController.instantiate()
-            viewController.viewModel = SendBalanceViewModel(router: unownedRouter)
+            viewController.viewModel = SendBalanceViewModel(router: unownedRouter, wallet: wallet)
             return .push(viewController)
             
         case .wallets:
