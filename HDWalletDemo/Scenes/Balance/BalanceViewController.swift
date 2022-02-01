@@ -18,6 +18,12 @@ class BalanceViewController: UIViewController {
         super.viewDidLoad()
         setupBinding()
         viewModel.getBalance()
+        setupView()
+    }
+    
+    private func setupView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = viewModel.walletName
     }
     
     private func setupBinding() {

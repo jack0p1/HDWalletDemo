@@ -247,20 +247,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGN-va-22d">
-                                <rect key="frame" x="30" y="94" width="83" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-.- ETH" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
-                                <rect key="frame" x="30" y="183" width="354" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum (ETH): -.-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
+                                <rect key="frame" x="30" y="94" width="354" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4R-JZ-5op">
-                                <rect key="frame" x="130.5" y="309.5" width="153.5" height="40.5"/>
+                                <rect key="frame" x="130.5" y="428" width="153.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send balance">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
@@ -274,12 +268,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="h4R-JZ-5op" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="13K-8y-UCQ"/>
-                            <constraint firstItem="VGN-va-22d" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="169-wW-ju6"/>
-                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="top" secondItem="VGN-va-22d" secondAttribute="bottom" constant="60" id="3zB-a4-HRX"/>
-                            <constraint firstItem="h4R-JZ-5op" firstAttribute="top" secondItem="f9i-MP-Vvu" secondAttribute="bottom" constant="100" id="Kbb-Rw-NRa"/>
-                            <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VGN-va-22d" secondAttribute="trailing" constant="30" id="cdK-2D-gxX"/>
-                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="leading" secondItem="VGN-va-22d" secondAttribute="leading" id="f42-Jm-du7"/>
-                            <constraint firstItem="VGN-va-22d" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="r2y-5U-oJv"/>
+                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="EJb-a6-Xr8"/>
+                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="Z7M-m4-VxS"/>
+                            <constraint firstItem="h4R-JZ-5op" firstAttribute="centerY" secondItem="2za-cp-u2G" secondAttribute="centerY" id="ceE-51-xAq"/>
                             <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" secondItem="f9i-MP-Vvu" secondAttribute="trailing" constant="30" id="tTb-gq-Nyg"/>
                         </constraints>
                     </view>
@@ -300,18 +291,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter seed phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-z3-Iqw">
-                                <rect key="frame" x="30" y="273" width="186" height="29"/>
+                                <rect key="frame" x="30" y="277" width="186" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Seed phrase" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MWm-aT-gin">
-                                <rect key="frame" x="30" y="362" width="354" height="34"/>
+                                <rect key="frame" x="30" y="366" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-0l-Idl">
-                                <rect key="frame" x="164" y="446" width="86.5" height="40.5"/>
+                                <rect key="frame" x="164" y="450" width="86.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Import">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
@@ -321,7 +312,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FaS-w1-nWc">
-                                <rect key="frame" x="188.5" y="309" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="313" width="37" height="37"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npM-AZ-AV2">
                                 <rect key="frame" x="30" y="94" width="175" height="29"/>
@@ -344,7 +335,7 @@
                             <constraint firstItem="npM-AZ-AV2" firstAttribute="leading" secondItem="RgX-3d-Dfd" secondAttribute="leading" constant="30" id="AHt-Ma-RuZ"/>
                             <constraint firstItem="MWm-aT-gin" firstAttribute="top" secondItem="1k8-z3-Iqw" secondAttribute="bottom" constant="60" id="Edd-7o-jkb"/>
                             <constraint firstItem="mHs-0l-Idl" firstAttribute="top" secondItem="MWm-aT-gin" secondAttribute="bottom" constant="50" id="GrG-PK-WPe"/>
-                            <constraint firstItem="1k8-z3-Iqw" firstAttribute="top" secondItem="npM-AZ-AV2" secondAttribute="bottom" constant="150" id="QmR-1C-TaM"/>
+                            <constraint firstItem="1k8-z3-Iqw" firstAttribute="top" secondItem="FDX-Ls-rVF" secondAttribute="bottom" constant="60" id="HcA-Hz-JLb"/>
                             <constraint firstItem="RgX-3d-Dfd" firstAttribute="trailing" secondItem="FDX-Ls-rVF" secondAttribute="trailing" constant="30" id="RAf-TV-h7q"/>
                             <constraint firstItem="RgX-3d-Dfd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="npM-AZ-AV2" secondAttribute="trailing" constant="30" id="YeI-WK-TvL"/>
                             <constraint firstItem="RgX-3d-Dfd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1k8-z3-Iqw" secondAttribute="trailing" constant="30" id="coH-Km-fxS"/>
@@ -378,18 +369,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yax-X5-gxh">
-                                <rect key="frame" x="30" y="94" width="79.5" height="29"/>
+                                <rect key="frame" x="30" y="44" width="79.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXI-Kh-3rI">
-                                <rect key="frame" x="30" y="183" width="354" height="34"/>
+                                <rect key="frame" x="30" y="133" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-Oc-tZ2">
-                                <rect key="frame" x="168" y="426.5" width="78" height="43"/>
+                                <rect key="frame" x="168" y="400" width="78" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
@@ -399,26 +390,46 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="TNL-yq-WcI">
-                                <rect key="frame" x="188.5" y="289.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="263" width="37" height="37"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount (in ETH)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obZ-pj-OT6">
+                                <rect key="frame" x="30" y="227" width="171.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NnD-uf-B7x">
+                                <rect key="frame" x="30" y="316" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qWU-Su-4Sk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="obZ-pj-OT6" secondAttribute="trailing" constant="30" id="6fC-xd-gIV"/>
                             <constraint firstItem="zeh-Oc-tZ2" firstAttribute="top" secondItem="TNL-yq-WcI" secondAttribute="bottom" constant="100" id="8uX-Cr-303"/>
                             <constraint firstItem="Yax-X5-gxh" firstAttribute="leading" secondItem="qWU-Su-4Sk" secondAttribute="leading" constant="30" id="Gmj-P8-KNC"/>
                             <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yax-X5-gxh" secondAttribute="trailing" constant="30" id="MV3-us-n2X"/>
                             <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" secondItem="gXI-Kh-3rI" secondAttribute="trailing" constant="30" id="PNu-qO-SuF"/>
+                            <constraint firstItem="NnD-uf-B7x" firstAttribute="top" secondItem="obZ-pj-OT6" secondAttribute="bottom" constant="60" id="YTA-bU-OOl"/>
                             <constraint firstItem="gXI-Kh-3rI" firstAttribute="top" secondItem="Yax-X5-gxh" secondAttribute="bottom" constant="60" id="ZAW-Qn-sqi"/>
+                            <constraint firstItem="NnD-uf-B7x" firstAttribute="leading" secondItem="obZ-pj-OT6" secondAttribute="leading" id="a24-XW-Tay"/>
+                            <constraint firstItem="obZ-pj-OT6" firstAttribute="top" secondItem="gXI-Kh-3rI" secondAttribute="bottom" constant="60" id="efG-uS-vzz"/>
+                            <constraint firstItem="zeh-Oc-tZ2" firstAttribute="top" secondItem="NnD-uf-B7x" secondAttribute="bottom" constant="50" id="fLF-sv-X6C"/>
                             <constraint firstItem="zeh-Oc-tZ2" firstAttribute="centerX" secondItem="REg-Vo-ql3" secondAttribute="centerX" id="h5C-x4-sL9"/>
+                            <constraint firstItem="obZ-pj-OT6" firstAttribute="leading" secondItem="gXI-Kh-3rI" secondAttribute="leading" id="kat-Sd-gyt"/>
+                            <constraint firstItem="qWU-Su-4Sk" firstAttribute="trailing" secondItem="NnD-uf-B7x" secondAttribute="trailing" constant="30" id="kp4-Ib-y7t"/>
                             <constraint firstItem="gXI-Kh-3rI" firstAttribute="leading" secondItem="Yax-X5-gxh" secondAttribute="leading" id="oja-IR-5cu"/>
-                            <constraint firstItem="zeh-Oc-tZ2" firstAttribute="centerY" secondItem="REg-Vo-ql3" secondAttribute="centerY" id="uo7-7k-em5"/>
-                            <constraint firstItem="Yax-X5-gxh" firstAttribute="top" secondItem="qWU-Su-4Sk" secondAttribute="top" constant="50" id="wpV-Zq-vTt"/>
+                            <constraint firstItem="Yax-X5-gxh" firstAttribute="top" secondItem="qWU-Su-4Sk" secondAttribute="top" id="wpV-Zq-vTt"/>
                             <constraint firstItem="TNL-yq-WcI" firstAttribute="centerX" secondItem="REg-Vo-ql3" secondAttribute="centerX" id="yyQ-mO-EOn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressTextField" destination="gXI-Kh-3rI" id="gol-Wq-vid"/>
+                        <outlet property="amountLabel" destination="obZ-pj-OT6" id="IFH-tq-CxP"/>
+                        <outlet property="amountTextField" destination="NnD-uf-B7x" id="a6u-U3-gHN"/>
+                        <outlet property="loadingView" destination="TNL-yq-WcI" id="8an-X2-FZs"/>
                         <outlet property="sendButton" destination="zeh-Oc-tZ2" id="S8C-LS-dDE"/>
                     </connections>
                 </viewController>

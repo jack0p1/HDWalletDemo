@@ -15,7 +15,7 @@ class SendBalanceViewModel {
         self.router = router
     }
     
-    func sendBalance(amount: String) {
+    func sendBalance(to destination: String, amount: String, completion: @escaping () -> Void) {
         
     }
 }

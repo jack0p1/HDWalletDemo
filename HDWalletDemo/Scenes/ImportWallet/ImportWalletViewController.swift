@@ -59,7 +59,6 @@ class ImportWalletViewController: UIViewController {
                 self?.viewModel.routeToWallets()
             }
         }
-        
     }
 }
 

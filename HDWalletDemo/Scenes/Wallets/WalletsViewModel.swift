@@ -31,7 +31,7 @@ class WalletsViewModel: NSObject {
 extension WalletsViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let wallet = wallets[safe: indexPath.row] else { return }
-        router.trigger(.balance(address: wallet.address))
+        router.trigger(.balance(address: wallet.address, name: wallet.name))
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
