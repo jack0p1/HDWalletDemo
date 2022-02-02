@@ -90,7 +90,7 @@ class DataManager {
         }
     }
     
-    func getTokenBalance(for address: String, token: TokenContract, completion: @escaping (String?, String?, String?) -> Void) {
+    func getTokenBalance(for address: String, token: TokenContract, completion: @escaping (Double?, String?, String?) -> Void) {
         guard let walletAddress = EthereumAddress(address),
               let exploredAddress = EthereumAddress(address),
               let erc20ContractAddress = EthereumAddress(token.contractAddress) else { return }
@@ -130,7 +130,8 @@ class DataManager {
                 
                 group.notify(queue: .main) {
                     if balanceBigUInt != nil {
-                        let balance = Web3.Utils.formatToEthereumUnits(balanceBigUInt!, toUnits: .eth, decimals: 4)!
+                        let denominator = pow(10, Double(tokenData.decimals))
+                        let balance = Double(balanceBigUInt!) / denominator
                         completion(balance, tokenData.name, tokenData.symbol)
                     } else {
                         completion(nil, nil, nil)
