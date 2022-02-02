@@ -9,8 +9,9 @@ import UIKit
 import Combine
 
 class BalanceViewController: UIViewController {
-    @IBOutlet private weak var balanceLabel: UILabel!
+    @IBOutlet private weak var ethBalanceLabel: UILabel!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var linkBalanceLabel: UILabel!
     
     var viewModel: BalanceViewModel!
     private var subscriptions = Set<AnyCancellable>()
@@ -33,9 +34,20 @@ class BalanceViewController: UIViewController {
     }
     
     private func setupBinding() {
-        viewModel.balance
+        viewModel.ethBalance
             .sink { [weak self] in
-                self?.balanceLabel.text = $0
+                self?.ethBalanceLabel.text = $0
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.chainLinkBalance
+            .sink { [weak self] in
+                self?.linkBalanceLabel.text = $0
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.balanceLoaded
+            .sink { [weak self] in
                 self?.loadingView.stopAnimating()
             }
             .store(in: &subscriptions)

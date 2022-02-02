@@ -14,7 +14,9 @@ class BalanceViewModel {
     private let router: UnownedRouter<MainFlow>
     
     let wallet: Wallet
-    var balance = PassthroughSubject<String, Never>()
+    var ethBalance = PassthroughSubject<String, Never>()
+    var chainLinkBalance = PassthroughSubject<String, Never>()
+    var balanceLoaded = PassthroughSubject<Void, Never>()
     
     init(router: UnownedRouter<MainFlow>, wallet: Wallet) {
         self.router = router
@@ -22,9 +24,21 @@ class BalanceViewModel {
     }
     
     func getBalance() {
-        DataManager.shared.getBalance(for: wallet.address) { [weak self] in
-            guard let balance = $0 else { return }
-            self?.balance.send("Ethereum (ETH): " + balance)
+        let group = DispatchGroup()
+        group.enter()
+        DataManager.shared.getEthBalance(for: wallet.address) { [weak self] in
+            self?.ethBalance.send("Ethereum (ETH): " + ($0 ?? "-"))
+            group.leave()
+        }
+        
+        group.enter()
+        DataManager.shared.getChainLinkBalance(for: wallet.address) { [weak self] in
+            self?.chainLinkBalance.send("ChainLink (LINK): " + ($0 ?? "-"))
+            group.leave()
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.balanceLoaded.send()
         }
     }
     

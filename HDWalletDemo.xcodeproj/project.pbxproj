@@ -38,6 +38,7 @@
 		DAC4691A27A41F3400893C26 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691827A41F3400893C26 /* WalletsTableViewCell.swift */; };
 		DAC4691B27A41F3400893C26 /* WalletsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */; };
 		DAC4691F27A42A4A00893C26 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691E27A42A4A00893C26 /* Collection.swift */; };
+		DAE2868627A9923C009076BA /* TokenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2868527A9923C009076BA /* TokenContract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		DAC4691827A41F3400893C26 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
 		DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsTableViewCell.xib; sourceTree = "<group>"; };
 		DAC4691E27A42A4A00893C26 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		DAE2868527A9923C009076BA /* TokenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenContract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA630FA27A1A027004191DB /* Wallet.swift */,
+				DAE2868527A9923C009076BA /* TokenContract.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
+				DAE2868627A9923C009076BA /* TokenContract.swift in Sources */,
 				DAC4690E27A406DB00893C26 /* SendBalanceViewController.swift in Sources */,
 				DAC4690B27A32A8900893C26 /* ImportWalletViewModel.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */,

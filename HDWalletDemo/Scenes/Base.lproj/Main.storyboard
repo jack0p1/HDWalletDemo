@@ -247,12 +247,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum (ETH): -" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
-                                <rect key="frame" x="30" y="94" width="354" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cri-Dv-pmG">
+                                <rect key="frame" x="30" y="94" width="354" height="83"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum (ETH): -" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-MP-Vvu">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChainLink (LINK): -" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-8V-G8q">
+                                        <rect key="frame" x="0.0" y="56.5" width="354" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4R-JZ-5op">
                                 <rect key="frame" x="130.5" y="428" width="153.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
@@ -270,17 +281,18 @@
                         <viewLayoutGuide key="safeArea" id="VKt-Ep-MS1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" secondItem="cri-Dv-pmG" secondAttribute="trailing" constant="30" id="0ah-iq-bh8"/>
                             <constraint firstItem="h4R-JZ-5op" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="13K-8y-UCQ"/>
-                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="EJb-a6-Xr8"/>
-                            <constraint firstItem="f9i-MP-Vvu" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="Z7M-m4-VxS"/>
+                            <constraint firstItem="cri-Dv-pmG" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="QC7-np-Ziz"/>
+                            <constraint firstItem="cri-Dv-pmG" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="XUv-ks-NzU"/>
                             <constraint firstItem="WvV-mL-RzF" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="c9u-aJ-fC4"/>
                             <constraint firstItem="h4R-JZ-5op" firstAttribute="centerY" secondItem="2za-cp-u2G" secondAttribute="centerY" id="ceE-51-xAq"/>
                             <constraint firstItem="h4R-JZ-5op" firstAttribute="top" secondItem="WvV-mL-RzF" secondAttribute="bottom" constant="60" id="cnf-2Q-r0d"/>
-                            <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" secondItem="f9i-MP-Vvu" secondAttribute="trailing" constant="30" id="tTb-gq-Nyg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="balanceLabel" destination="f9i-MP-Vvu" id="g6a-d8-JN3"/>
+                        <outlet property="ethBalanceLabel" destination="f9i-MP-Vvu" id="g6a-d8-JN3"/>
+                        <outlet property="linkBalanceLabel" destination="Oun-8V-G8q" id="Znc-jo-pui"/>
                         <outlet property="loadingView" destination="WvV-mL-RzF" id="M4g-nQ-D5j"/>
                     </connections>
                 </viewController>
