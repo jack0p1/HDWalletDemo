@@ -32,7 +32,7 @@ class BalanceViewModel {
         }
         
         group.enter()
-        DataManager.shared.getChainLinkBalance(for: wallet.address) { [weak self] in
+        DataManager.shared.getTokenBalance(for: wallet.address, token: TokenContract.chainLink) { [weak self] in
             self?.chainLinkBalance.send("ChainLink (LINK): " + ($0 ?? "-"))
             group.leave()
         }

@@ -90,19 +90,21 @@ class DataManager {
         }
     }
     
-    func getChainLinkBalance(for address: String, completion: @escaping (String?) -> Void) {
+    func getTokenBalance(for address: String, token: TokenContract, completion: @escaping (String?) -> Void) {
         guard let walletAddress = EthereumAddress(address),
               let exploredAddress = EthereumAddress(address),
-              let erc20ContractAddress = EthereumAddress(TokenContract.chainLink.contractAddress) else { return }
+              let erc20ContractAddress = EthereumAddress(token.contractAddress) else { return }
+        
+        let web3Instance = token.network == .ropsten ? self.web3RopstenInstance : self.web3RinkebyInstance
         
         let retrieveBalance = {
-            DispatchQueue.global(qos: .utility).async { [weak self] in
-                guard let web3RinkebyInstance = self?.web3RinkebyInstance else { return }
+            DispatchQueue.global(qos: .utility).async {
+                guard let web3Instance = web3Instance else { return }
                 
                 let group = DispatchGroup()
                 group.enter()
                 
-                let contract = web3RinkebyInstance.contract(Web3.Utils.erc20ABI, at: erc20ContractAddress, abiVersion: 2)!
+                let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: erc20ContractAddress, abiVersion: 2)!
                 var options = TransactionOptions.defaultOptions
                 options.from = walletAddress
                 options.gasPrice = .automatic
@@ -134,7 +136,7 @@ class DataManager {
             }
         }
         
-        if web3RinkebyInstance == nil {
+        if web3Instance == nil {
             initializeWeb3 {
                 retrieveBalance()
             }
