@@ -58,20 +58,14 @@ class DataManager {
         let retrieveBalance = {
             DispatchQueue.global(qos: .utility).async { [weak self] in
                 guard let web3RopstenInstance = self?.web3RopstenInstance else { return }
-                
-                let group = DispatchGroup()
-                group.enter()
-                
                 var balanceBigUInt: BigUInt?
                 do {
                     balanceBigUInt = try web3RopstenInstance.eth.getBalance(address: address)
                 } catch {
                     print(error.localizedDescription)
                 }
-                
-                group.leave()
-                
-                group.notify(queue: .main) {
+
+                DispatchQueue.main.async {
                     if balanceBigUInt != nil {
                         completion(Web3.Utils.formatToEthereumUnits(balanceBigUInt!, toUnits: .eth, decimals: 4)!)
                     } else {
@@ -100,10 +94,6 @@ class DataManager {
         let retrieveBalance = {
             DispatchQueue.global(qos: .utility).async {
                 guard let web3Instance = web3Instance else { return }
-                
-                let group = DispatchGroup()
-                group.enter()
-                
                 let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: erc20ContractAddress, abiVersion: 2)!
                 var options = TransactionOptions.defaultOptions
                 options.from = walletAddress
@@ -126,9 +116,7 @@ class DataManager {
                 
                 let tokenData = ERC20(web3: web3Instance, provider: web3Instance.provider, address: erc20ContractAddress)
                 
-                group.leave()
-                
-                group.notify(queue: .main) {
+                DispatchQueue.main.async {
                     if balanceBigUInt != nil {
                         let denominator = pow(10, Double(tokenData.decimals))
                         let balance = Double(balanceBigUInt!) / denominator
@@ -153,9 +141,6 @@ class DataManager {
         guard let password = AccountManager.shared.password else { return }
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let group = DispatchGroup()
-            group.enter()
-            
             let formattedKey = privateKey.trimmingCharacters(in: .whitespacesAndNewlines)
             let dataKey = Data.fromHex(formattedKey)!
             let keystore = try! EthereumKeystoreV3(privateKey: dataKey, password: password)!
@@ -169,9 +154,7 @@ class DataManager {
             let keystoreManager = KeystoreManager([keystore])
             self?.web3RopstenInstance?.addKeystoreManager(keystoreManager)
             
-            group.leave()
-            
-            group.notify(queue: .main) {
+            DispatchQueue.main.async {
                 completion()
             }
         }
@@ -182,9 +165,6 @@ class DataManager {
               let wallet = AccountManager.shared.wallet else { return }
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let group = DispatchGroup()
-            group.enter()
-            
             do {
                 let keystore = BIP32Keystore(wallet.data)!
                 try keystore.createNewChildAccount(password: password)
@@ -204,9 +184,7 @@ class DataManager {
                 print(error.localizedDescription)
             }
             
-            group.leave()
-            
-            group.notify(queue: .main) {
+            DispatchQueue.main.async {
                 completion()
             }
         }
@@ -216,9 +194,6 @@ class DataManager {
         guard let password = AccountManager.shared.password else { return }
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let group = DispatchGroup()
-            group.enter()
-            
             let keystoreManager: KeystoreManager
             if wallet.isImported {
                 let keystore = EthereumKeystoreV3(wallet.data)!
@@ -249,10 +224,8 @@ class DataManager {
             } catch {
                 print(error.localizedDescription)
             }
-            
-            group.leave()
-            
-            group.notify(queue: .main) {
+
+            DispatchQueue.main.async {
                 completion()
             }
         }
@@ -262,9 +235,6 @@ class DataManager {
     private func initializeWeb3(completion: @escaping (() -> Void)) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            let group = DispatchGroup()
-            group.enter()
-            
             if self.web3RopstenInstance == nil {
                 self.web3RopstenInstance = web3(provider: Web3HttpProvider(URL(string: Constants.ropstenEndpoint)!)!)
             }
@@ -272,10 +242,8 @@ class DataManager {
             if self.web3RinkebyInstance == nil {
                 self.web3RinkebyInstance = web3(provider: Web3HttpProvider(URL(string: Constants.rinkebyEndpoint)!)!)
             }
-            
-            group.leave()
-            
-            group.notify(queue: .main) {
+
+            DispatchQueue.main.async {
                 completion()
             }
         }
@@ -283,9 +251,6 @@ class DataManager {
     
     private func _createWallet(with password: String, completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let group = DispatchGroup()
-            group.enter()
-            
             let bitsOfEntropy: Int = 256 // Entropy is a measure of password strength. Usually used 128 or 256 bits.
             let mnemonics = try! BIP39.generateMnemonics(bitsOfEntropy: bitsOfEntropy)!
             let keystore = try! BIP32Keystore(
@@ -306,9 +271,7 @@ class DataManager {
             let keystoreManager = KeystoreManager([keystore])
             self?.web3RopstenInstance?.addKeystoreManager(keystoreManager)
             
-            group.leave()
-            
-            group.notify(queue: .main) {
+            DispatchQueue.main.async {
                 completion()
             }
         }
@@ -316,9 +279,6 @@ class DataManager {
     
     private func _importWallet(password: String, phrase: String, completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let group = DispatchGroup()
-            group.enter()
-            
             let keystore = try! BIP32Keystore(
                 mnemonics: phrase,
                 password: password,
@@ -337,9 +297,7 @@ class DataManager {
             let keystoreManager = KeystoreManager([keystore])
             self?.web3RopstenInstance?.addKeystoreManager(keystoreManager)
             
-            group.leave()
-            
-            group.notify(queue: .main) {
+            DispatchQueue.main.async {
                 completion()
             }
         }
