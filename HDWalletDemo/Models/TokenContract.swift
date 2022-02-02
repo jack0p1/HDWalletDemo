@@ -13,39 +13,14 @@ enum TokenNetwork {
 
 enum TokenContract {
     case chainLink
-    
-    var chainId: Int {
-        switch self {
-        case .chainLink:
-            return 4
-        }
-    }
+    case gibboToken
     
     var contractAddress: String {
         switch self {
         case .chainLink:
             return "0x01BE23585060835E02B77ef475b0Cc51aA1e0709"
-        }
-    }
-    
-    var name: String {
-        switch self {
-        case .chainLink:
-            return "ChainLink Token"
-        }
-    }
-    
-    var symbol: String {
-        switch self {
-        case .chainLink:
-            return "LINK"
-        }
-    }
-    
-    var decimals: Int {
-        switch self {
-        case .chainLink:
-            return 18
+        case .gibboToken:
+            return "0x0d2b991bf5f41b01deae87bb2db95cd1efacf24b"
         }
     }
     
@@ -53,6 +28,8 @@ enum TokenContract {
         switch self {
         case .chainLink:
             return .rinkeby
+        case .gibboToken:
+            return .ropsten
         }
     }
 }

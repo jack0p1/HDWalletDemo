@@ -14,9 +14,10 @@ class BalanceViewModel {
     private let router: UnownedRouter<MainFlow>
     
     let wallet: Wallet
+    var balanceLoaded = PassthroughSubject<Void, Never>()
     var ethBalance = PassthroughSubject<String, Never>()
     var chainLinkBalance = PassthroughSubject<String, Never>()
-    var balanceLoaded = PassthroughSubject<Void, Never>()
+    var gibboTokenBalance = PassthroughSubject<String, Never>()
     
     init(router: UnownedRouter<MainFlow>, wallet: Wallet) {
         self.router = router
@@ -32,8 +33,18 @@ class BalanceViewModel {
         }
         
         group.enter()
-        DataManager.shared.getTokenBalance(for: wallet.address, token: TokenContract.chainLink) { [weak self] in
-            self?.chainLinkBalance.send("ChainLink (LINK): " + ($0 ?? "-"))
+        DataManager.shared.getTokenBalance(for: wallet.address, token: TokenContract.chainLink) { [weak self] balance, name, symbol in
+            if let balance = balance, let name = name, let symbol = symbol {
+                self?.chainLinkBalance.send("\(name) (\(symbol)): \(balance)")
+            }
+            group.leave()
+        }
+        
+        group.enter()
+        DataManager.shared.getTokenBalance(for: wallet.address, token: TokenContract.gibboToken) { [weak self] balance, name, symbol in
+            if let balance = balance, let name = name, let symbol = symbol {
+                self?.gibboTokenBalance.send("\(name) (\(symbol)): \(balance)")
+            }
             group.leave()
         }
         

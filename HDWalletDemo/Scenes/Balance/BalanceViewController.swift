@@ -12,6 +12,7 @@ class BalanceViewController: UIViewController {
     @IBOutlet private weak var ethBalanceLabel: UILabel!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var linkBalanceLabel: UILabel!
+    @IBOutlet private weak var gibboTokenBalanceLabel: UILabel!
     
     var viewModel: BalanceViewModel!
     private var subscriptions = Set<AnyCancellable>()
@@ -49,6 +50,12 @@ class BalanceViewController: UIViewController {
         viewModel.balanceLoaded
             .sink { [weak self] in
                 self?.loadingView.stopAnimating()
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.gibboTokenBalance
+            .sink { [weak self] in
+                self?.gibboTokenBalanceLabel.text = $0
             }
             .store(in: &subscriptions)
     }

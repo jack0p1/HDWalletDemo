@@ -90,7 +90,7 @@ class DataManager {
         }
     }
     
-    func getTokenBalance(for address: String, token: TokenContract, completion: @escaping (String?) -> Void) {
+    func getTokenBalance(for address: String, token: TokenContract, completion: @escaping (String?, String?, String?) -> Void) {
         guard let walletAddress = EthereumAddress(address),
               let exploredAddress = EthereumAddress(address),
               let erc20ContractAddress = EthereumAddress(token.contractAddress) else { return }
@@ -124,13 +124,16 @@ class DataManager {
                     print(error.localizedDescription)
                 }
                 
+                let tokenData = ERC20(web3: web3Instance, provider: web3Instance.provider, address: erc20ContractAddress)
+                
                 group.leave()
                 
                 group.notify(queue: .main) {
                     if balanceBigUInt != nil {
-                        completion(Web3.Utils.formatToEthereumUnits(balanceBigUInt!, toUnits: .eth, decimals: 4)!)
+                        let balance = Web3.Utils.formatToEthereumUnits(balanceBigUInt!, toUnits: .eth, decimals: 4)!
+                        completion(balance, tokenData.name, tokenData.symbol)
                     } else {
-                        completion(nil)
+                        completion(nil, nil, nil)
                     }
                 }
             }
