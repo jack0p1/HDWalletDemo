@@ -10,11 +10,11 @@ import XCoordinator
 
 class ImportWalletViewModel {
     private let router: UnownedRouter<MainFlow>
-    let isAddingChildWallet: Bool
+    let isAddingAccount: Bool
     
-    init(router: UnownedRouter<MainFlow>, isAddingChildWallet: Bool) {
+    init(router: UnownedRouter<MainFlow>, isAddingAccount: Bool) {
         self.router = router
-        self.isAddingChildWallet = isAddingChildWallet
+        self.isAddingAccount = isAddingAccount
     }
     
     func importWallet(password: String, phrase: String, completion: @escaping () -> Void) {

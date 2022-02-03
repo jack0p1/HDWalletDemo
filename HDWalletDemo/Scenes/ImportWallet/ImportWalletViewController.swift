@@ -28,7 +28,7 @@ class ImportWalletViewController: UIViewController {
     }
     
     private func setupView() {
-        if viewModel.isAddingChildWallet {
+        if viewModel.isAddingAccount {
             enterSeedLabel.isHidden = true
             seedPhraseTextField.isHidden = true
             createPasswordLabel.text = "Enter a private key"
@@ -45,7 +45,7 @@ class ImportWalletViewController: UIViewController {
         importButton.isEnabled = false
         loadingView.startAnimating()
         
-        if viewModel.isAddingChildWallet {
+        if viewModel.isAddingAccount {
             guard let privateKey = passwordTextField.text else { return }
             viewModel.importChildWallet(privateKey: privateKey) { [weak self] in
                 self?.loadingView.stopAnimating()

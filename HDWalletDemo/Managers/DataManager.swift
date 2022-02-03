@@ -115,12 +115,15 @@ class DataManager {
                 }
                 
                 let tokenData = ERC20(web3: web3Instance, provider: web3Instance.provider, address: erc20ContractAddress)
+                let decimals = tokenData.decimals
+                let name = tokenData.name
+                let symbol = tokenData.symbol
                 
                 DispatchQueue.main.async {
                     if balanceBigUInt != nil {
-                        let denominator = pow(10, Double(tokenData.decimals))
+                        let denominator = pow(10, Double(decimals))
                         let balance = Double(balanceBigUInt!) / denominator
-                        completion(balance, tokenData.name, tokenData.symbol)
+                        completion(balance, name, symbol)
                     } else {
                         completion(nil, nil, nil)
                     }
@@ -243,9 +246,7 @@ class DataManager {
                 self.web3RinkebyInstance = web3(provider: Web3HttpProvider(URL(string: Constants.rinkebyEndpoint)!)!)
             }
 
-            DispatchQueue.main.async {
-                completion()
-            }
+            completion()
         }
     }
     

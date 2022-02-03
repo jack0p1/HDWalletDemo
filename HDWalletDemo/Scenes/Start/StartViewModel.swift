@@ -20,6 +20,6 @@ class StartViewModel {
     }
     
     func routeToImportWallet() {
-        router.trigger(.importWallet(isAddingChildWallet: false))
+        router.trigger(.importWallet(isAddingAccount: false))
     }
 }

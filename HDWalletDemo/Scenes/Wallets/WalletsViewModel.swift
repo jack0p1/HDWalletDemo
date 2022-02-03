@@ -24,7 +24,7 @@ class WalletsViewModel: NSObject {
     }
     
     func routeToImportWallet() {
-        router.trigger(.importWallet(isAddingChildWallet: true))
+        router.trigger(.importWallet(isAddingAccount: true))
     }
 }
 
