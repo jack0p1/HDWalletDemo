@@ -37,6 +37,8 @@ class SendBalanceViewController: UIViewController {
         loadingView.startAnimating()
         
         viewModel.sendBalance(to: destination, amount: amount) { [weak self] in
+            NotificationCenter.default.post(name: .sentBalance, object: nil)
+            
             self?.loadingView.stopAnimating()
             self?.viewModel.routeBack()
         }
