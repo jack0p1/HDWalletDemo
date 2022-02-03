@@ -16,7 +16,12 @@ class WalletsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
 
     override func viewDidLoad() {
@@ -31,6 +36,11 @@ class WalletsViewController: UIViewController {
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Your wallets"
+        navigationItem.setHidesBackButton(true, animated: false)
+        
+        NotificationCenter.default.addObserver(forName: .importedWallet, object: nil, queue: nil) { [weak self] _ in
+            self?.tableView.reloadData()
+        }
     }
     
     @IBAction func createPressed(_ sender: UIButton) {

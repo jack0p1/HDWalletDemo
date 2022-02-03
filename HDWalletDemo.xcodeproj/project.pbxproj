@@ -39,6 +39,7 @@
 		DAC4691B27A41F3400893C26 /* WalletsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */; };
 		DAC4691F27A42A4A00893C26 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4691E27A42A4A00893C26 /* Collection.swift */; };
 		DAE2868627A9923C009076BA /* TokenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2868527A9923C009076BA /* TokenContract.swift */; };
+		DAE2868827ABEDAD009076BA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2868727ABEDAD009076BA /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		DAC4691927A41F3400893C26 /* WalletsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsTableViewCell.xib; sourceTree = "<group>"; };
 		DAC4691E27A42A4A00893C26 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		DAE2868527A9923C009076BA /* TokenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenContract.swift; sourceTree = "<group>"; };
+		DAE2868727ABEDAD009076BA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				DA505E3D279AFF8700D322FD /* UIViewController.swift */,
 				DAC4691E27A42A4A00893C26 /* Collection.swift */,
+				DAE2868727ABEDAD009076BA /* Notification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
 				DAC4691A27A41F3400893C26 /* WalletsTableViewCell.swift in Sources */,
 				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
+				DAE2868827ABEDAD009076BA /* Notification.swift in Sources */,
 				DA5E14DE27A0384D00FFA107 /* Constants.swift in Sources */,
 				DAC4690427A2BC6600893C26 /* BalanceViewModel.swift in Sources */,
 				DAC4691527A4137400893C26 /* WalletsViewModel.swift in Sources */,

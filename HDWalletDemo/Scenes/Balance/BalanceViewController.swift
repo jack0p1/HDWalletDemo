@@ -23,15 +23,16 @@ class BalanceViewController: UIViewController {
         setupView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadingView.startAnimating()
-        viewModel.getBalance()
-    }
-    
     private func setupView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = viewModel.wallet.name
+        loadingView.startAnimating()
+        viewModel.getBalance()
+        
+        NotificationCenter.default.addObserver(forName: .sentBalance, object: nil, queue: nil) { [weak self] _ in
+            self?.loadingView.startAnimating()
+            self?.viewModel.getBalance()
+        }
     }
     
     private func setupBinding() {

@@ -48,6 +48,8 @@ class ImportWalletViewController: UIViewController {
         if viewModel.isAddingAccount {
             guard let privateKey = passwordTextField.text else { return }
             viewModel.importChildWallet(privateKey: privateKey) { [weak self] in
+                NotificationCenter.default.post(name: .importedWallet, object: nil)
+                
                 self?.loadingView.stopAnimating()
                 self?.viewModel.routeBack()
             }
