@@ -6,24 +6,45 @@
 //
 
 import UIKit
+import Combine
 
 class SendBalanceViewController: UIViewController {
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet private weak var addressTextField: UITextField!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var amountTextField: UITextField!
-    @IBOutlet private weak var amountLabel: UILabel!
+    @IBOutlet private weak var currencyTextField: UITextField!
     
     var viewModel: SendBalanceViewModel!
+    var subscriptions = Set<AnyCancellable>()
+    var chosenToken: SupportedToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addressTextField.delegate = self
         amountTextField.delegate = self
+        setupView()
+        setupBinding()
+    }
+    
+    private func setupView() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
         amountTextField.keyboardType = .decimalPad
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 240))
+        pickerView.dataSource = viewModel
+        pickerView.delegate = viewModel
+        currencyTextField.inputView = pickerView
+    }
+    
+    private func setupBinding() {
+        viewModel.pickerViewChoice
+            .sink { [weak self] in
+                self?.currencyTextField.text = $0.symbol
+                self?.chosenToken = $0
+            }
+            .store(in: &subscriptions)
     }
     
     @objc private func hideKeyboard() {
@@ -32,11 +53,12 @@ class SendBalanceViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: Any) {
         guard let destination = addressTextField.text,
-              let amount = amountTextField.text else { return }
+              let amount = amountTextField.text,
+              let token = chosenToken else { return }
         sendButton.isEnabled = false
         loadingView.startAnimating()
         
-        viewModel.sendBalance(to: destination, amount: amount) { [weak self] in
+        viewModel.sendBalance(to: destination, amount: amount, token: token) { [weak self] in
             NotificationCenter.default.post(name: .sentBalance, object: nil)
             
             self?.loadingView.stopAnimating()

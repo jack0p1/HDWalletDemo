@@ -13,6 +13,7 @@ class BalanceViewController: UIViewController {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var linkBalanceLabel: UILabel!
     @IBOutlet private weak var gibboTokenBalanceLabel: UILabel!
+    @IBOutlet private weak var sendButton: UIButton!
     
     var viewModel: BalanceViewModel!
     private var subscriptions = Set<AnyCancellable>()
@@ -27,6 +28,7 @@ class BalanceViewController: UIViewController {
         title = viewModel.wallet.name
         loadingView.startAnimating()
         viewModel.getBalance()
+        sendButton.isEnabled = false
         
         NotificationCenter.default.addObserver(forName: .sentBalance, object: nil, queue: nil) { [weak self] _ in
             self?.loadingView.startAnimating()
@@ -50,6 +52,7 @@ class BalanceViewController: UIViewController {
         viewModel.balanceLoaded
             .sink { [weak self] in
                 self?.loadingView.stopAnimating()
+                self?.sendButton.isEnabled = true
             }
             .store(in: &subscriptions)
         

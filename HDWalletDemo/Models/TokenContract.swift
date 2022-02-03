@@ -15,7 +15,7 @@ enum TokenContract {
     case chainLink
     case gibboToken
     
-    var contractAddress: String {
+    var address: String {
         switch self {
         case .chainLink:
             return "0x01BE23585060835E02B77ef475b0Cc51aA1e0709"

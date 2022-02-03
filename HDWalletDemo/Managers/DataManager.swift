@@ -62,7 +62,9 @@ class DataManager {
                 do {
                     balanceBigUInt = try web3RopstenInstance.eth.getBalance(address: address)
                 } catch {
-                    print(error.localizedDescription)
+                    if let error = error as? Web3Error {
+                        print(error.errorDescription)
+                    }
                 }
 
                 DispatchQueue.main.async {
@@ -84,12 +86,12 @@ class DataManager {
         }
     }
     
-    func getTokenBalance(for address: String, token: TokenContract, completion: @escaping (Double?, String?, String?) -> Void) {
+    func getTokenBalance(for address: String, tokenContract: TokenContract, completion: @escaping (Double?, String?, String?) -> Void) {
         guard let walletAddress = EthereumAddress(address),
               let exploredAddress = EthereumAddress(address),
-              let erc20ContractAddress = EthereumAddress(token.contractAddress) else { return }
+              let erc20ContractAddress = EthereumAddress(tokenContract.address) else { return }
         
-        let web3Instance = token.network == .ropsten ? self.web3RopstenInstance : self.web3RinkebyInstance
+        let web3Instance = tokenContract.network == .ropsten ? self.web3RopstenInstance : self.web3RinkebyInstance
         
         let retrieveBalance = {
             DispatchQueue.global(qos: .utility).async {
@@ -111,7 +113,9 @@ class DataManager {
                     let tokenBalance = try tx.call()
                     balanceBigUInt = tokenBalance["0"] as? BigUInt
                 } catch {
-                    print(error.localizedDescription)
+                    if let error = error as? Web3Error {
+                        print(error.errorDescription)
+                    }
                 }
                 
                 let tokenData = ERC20(web3: web3Instance, provider: web3Instance.provider, address: erc20ContractAddress)
@@ -184,7 +188,10 @@ class DataManager {
                 let newChildWallet = Wallet(address: newWalletAddress, data: keyData, name: name, isHD: false, isImported: false)
                 AccountManager.shared.allWallets.append(newChildWallet)
             } catch {
-                print(error.localizedDescription)
+                if let error = error as? Web3Error {
+                    print(error.errorDescription)
+                }
+                return
             }
             
             DispatchQueue.main.async {
@@ -193,7 +200,7 @@ class DataManager {
         }
     }
     
-    func sendEth(from wallet: Wallet, to destination: String, amount: String, completion: @escaping () -> Void) {
+    func sendEthBalance(from wallet: Wallet, to destination: String, amount: String, completion: @escaping () -> Void) {
         guard let password = AccountManager.shared.password else { return }
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
@@ -225,9 +232,63 @@ class DataManager {
             do {
                 let _ = try tx?.send(password: password)
             } catch {
-                print(error.localizedDescription)
+                if let error = error as? Web3Error {
+                    print(error.errorDescription)
+                }
+                return
             }
 
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+    }
+    
+    func sendTokenBalance(from wallet: Wallet, to destination: String, amount: String, tokenContract: TokenContract, completion: @escaping () -> Void) {
+        guard let walletAddress = EthereumAddress(wallet.address),
+              let toAddress = EthereumAddress(destination),
+              let erc20ContractAddress = EthereumAddress(tokenContract.address),
+              let password = AccountManager.shared.password else { return }
+        
+        let web3Instance = tokenContract.network == .ropsten ? self.web3RopstenInstance : self.web3RinkebyInstance
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let web3Instance = web3Instance else { return }
+            
+            let keystoreManager: KeystoreManager
+            if wallet.isImported {
+                let keystore = EthereumKeystoreV3(wallet.data)!
+                keystoreManager = KeystoreManager([keystore])
+            } else {
+                let keystore = BIP32Keystore(wallet.data)!
+                keystoreManager = KeystoreManager([keystore])
+            }
+            web3Instance.addKeystoreManager(keystoreManager)
+            
+            let tokenData = ERC20(web3: web3Instance, provider: web3Instance.provider, address: erc20ContractAddress)
+            
+            let contract = web3Instance.contract(Web3.Utils.erc20ABI, at: erc20ContractAddress, abiVersion: 2)!
+            let value = (Double(amount) ?? 0) * pow(10, Double(tokenData.decimals))
+            var options = TransactionOptions.defaultOptions
+            options.from = walletAddress
+            options.gasPrice = .automatic
+            options.gasLimit = .automatic
+            let method = "transfer"
+            let tx = contract.write(
+                method,
+                parameters: [toAddress, value] as [AnyObject],
+                extraData: Data(),
+                transactionOptions: options)!
+            
+            do {
+                let _ = try tx.send(password: password)
+            } catch {
+                if let error = error as? Web3Error {
+                    print(error.errorDescription)
+                }
+                return
+            }
+            
             DispatchQueue.main.async {
                 completion()
             }

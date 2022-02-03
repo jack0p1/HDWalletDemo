@@ -37,7 +37,7 @@ class BalanceViewModel {
             group.wait()
 
             group.enter()
-            DataManager.shared.getTokenBalance(for: self.wallet.address, token: TokenContract.chainLink) { balance, name, symbol in
+            DataManager.shared.getTokenBalance(for: self.wallet.address, tokenContract: TokenContract.chainLink) { balance, name, symbol in
                 if let balance = balance, let name = name, let symbol = symbol {
                     self.chainLinkBalance.send("\(name) (\(symbol)): \(balance)")
                 }
@@ -45,7 +45,7 @@ class BalanceViewModel {
             }
 
             group.enter()
-            DataManager.shared.getTokenBalance(for: self.wallet.address, token: TokenContract.gibboToken) { balance, name, symbol in
+            DataManager.shared.getTokenBalance(for: self.wallet.address, tokenContract: TokenContract.gibboToken) { balance, name, symbol in
                 if let balance = balance, let name = name, let symbol = symbol {
                     self.gibboTokenBalance.send("\(name) (\(symbol)): \(balance)")
                 }
