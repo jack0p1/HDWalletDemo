@@ -24,7 +24,6 @@ class BalanceViewController: UIViewController {
     }
     
     private func setupView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = viewModel.wallet.name
         loadingView.startAnimating()
         viewModel.getBalance()

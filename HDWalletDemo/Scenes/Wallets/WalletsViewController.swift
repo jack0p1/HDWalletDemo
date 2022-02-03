@@ -34,9 +34,11 @@ class WalletsViewController: UIViewController {
     }
     
     private func setupView() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Your wallets"
         navigationItem.setHidesBackButton(true, animated: false)
+        navigationItem.largeTitleDisplayMode = .always
         
         NotificationCenter.default.addObserver(forName: .importedWallet, object: nil, queue: nil) { [weak self] _ in
             self?.tableView.reloadData()
