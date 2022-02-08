@@ -12,7 +12,7 @@ Currently supported coins/tokens:
 - GIBO (Ropsten network)
 
 ## Usage
-Clone the repo and open the *HDWalletDemo.xcodeproj* file. Please make sure to include a *Constants.swift* file of your own in the project that contains an endpoint to an Ethereum node (like Infura):
+Clone the repo and open the *HDWalletDemo.xcodeproj* file. Please make sure to paste your own Ropsten and Rinkeby endpoint URLs in the *Constants.swift* file:
 ```swift
 enum Constants {
     static let ropstenEndpoint = "YOUR ROPSTEN ENDPOINT URL"
