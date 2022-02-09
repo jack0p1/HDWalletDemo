@@ -18,6 +18,7 @@ enum MainFlow: Route {
     case wallets
     case back
     case nfts
+    case importNft
 }
 
 class MainCoordinator: NavigationCoordinator<MainFlow> {
@@ -69,6 +70,11 @@ class MainCoordinator: NavigationCoordinator<MainFlow> {
         case .nfts:
             let viewController: NFTsViewController = NFTsViewController.instantiate()
             viewController.viewModel = NFTsViewModel(router: unownedRouter)
+            return .push(viewController)
+            
+        case .importNft:
+            let viewController: ImportNFTViewController = ImportNFTViewController.instantiate()
+            viewController.viewModel = ImportNFTViewModel(router: unownedRouter)
             return .push(viewController)
         }
     }

@@ -16,6 +16,10 @@ class NFTsViewModel: NSObject {
     init(router: UnownedRouter<MainFlow>) {
         self.router = router
     }
+    
+    func routeToImportNFT() {
+        router.trigger(.importNft)
+    }
 }
 
 extension NFTsViewModel: UITableViewDelegate {

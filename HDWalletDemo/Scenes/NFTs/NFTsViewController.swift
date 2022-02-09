@@ -20,6 +20,6 @@ class NFTsViewController: UIViewController {
     }
     
     @IBAction func importNFTPressed(_ sender: UIButton) {
-        
+        viewModel.routeToImportNFT()
     }
 }

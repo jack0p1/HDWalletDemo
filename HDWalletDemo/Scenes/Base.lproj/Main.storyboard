@@ -653,6 +653,82 @@
             </objects>
             <point key="canvasLocation" x="4429" y="-186"/>
         </scene>
+        <!--ImportNFT View Controller-->
+        <scene sceneID="wyx-il-fKI">
+            <objects>
+                <viewController storyboardIdentifier="ImportNFTViewController" id="PA6-b4-uLD" customClass="ImportNFTViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ITW-eL-w2G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NFT contract address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irf-aS-WB1">
+                                <rect key="frame" x="30" y="44" width="223.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contract address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-29-Zsq">
+                                <rect key="frame" x="30" y="93" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44H-Um-dZL">
+                                <rect key="frame" x="161" y="431.5" width="92" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Import">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="importPressed:" destination="PA6-b4-uLD" eventType="touchUpInside" id="LLW-LM-dtj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-GO-hkD">
+                                <rect key="frame" x="30" y="167" width="89" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Token ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmB-vh-Wq4">
+                                <rect key="frame" x="30" y="216" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="oDP-42-8jh">
+                                <rect key="frame" x="188.5" y="359.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vu2-2Z-0Cq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xmB-vh-Wq4" firstAttribute="top" secondItem="HbS-GO-hkD" secondAttribute="bottom" constant="20" id="3sN-bd-fPh"/>
+                            <constraint firstItem="44H-Um-dZL" firstAttribute="centerX" secondItem="ITW-eL-w2G" secondAttribute="centerX" id="4gk-p9-V6t"/>
+                            <constraint firstItem="44H-Um-dZL" firstAttribute="top" secondItem="xmB-vh-Wq4" secondAttribute="bottom" constant="181.5" id="7Ol-jx-hjq"/>
+                            <constraint firstItem="xmB-vh-Wq4" firstAttribute="leading" secondItem="HbS-GO-hkD" secondAttribute="leading" id="8a9-53-AJC"/>
+                            <constraint firstItem="oDP-42-8jh" firstAttribute="centerY" secondItem="ITW-eL-w2G" secondAttribute="centerY" constant="-70" id="8qX-q4-ga9"/>
+                            <constraint firstItem="HbS-GO-hkD" firstAttribute="leading" secondItem="oAC-29-Zsq" secondAttribute="leading" id="JeO-lW-na9"/>
+                            <constraint firstItem="Vu2-2Z-0Cq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HbS-GO-hkD" secondAttribute="trailing" constant="30" id="LXF-0L-nQB"/>
+                            <constraint firstItem="HbS-GO-hkD" firstAttribute="top" secondItem="oAC-29-Zsq" secondAttribute="bottom" constant="40" id="Oth-oF-rAi"/>
+                            <constraint firstItem="Irf-aS-WB1" firstAttribute="top" secondItem="Vu2-2Z-0Cq" secondAttribute="top" id="WAP-p5-cWT"/>
+                            <constraint firstItem="oAC-29-Zsq" firstAttribute="leading" secondItem="Irf-aS-WB1" secondAttribute="leading" id="WAm-C6-EVC"/>
+                            <constraint firstItem="oDP-42-8jh" firstAttribute="centerX" secondItem="ITW-eL-w2G" secondAttribute="centerX" id="aeG-Vu-TAd"/>
+                            <constraint firstItem="Vu2-2Z-0Cq" firstAttribute="trailing" secondItem="oAC-29-Zsq" secondAttribute="trailing" constant="30" id="iWH-Mo-X1p"/>
+                            <constraint firstItem="Vu2-2Z-0Cq" firstAttribute="trailing" secondItem="xmB-vh-Wq4" secondAttribute="trailing" constant="30" id="qah-K1-FQi"/>
+                            <constraint firstItem="Vu2-2Z-0Cq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Irf-aS-WB1" secondAttribute="trailing" constant="30" id="sIB-bS-u1k"/>
+                            <constraint firstItem="oAC-29-Zsq" firstAttribute="top" secondItem="Irf-aS-WB1" secondAttribute="bottom" constant="20" id="wZl-Ly-vD0"/>
+                            <constraint firstItem="Irf-aS-WB1" firstAttribute="leading" secondItem="Vu2-2Z-0Cq" secondAttribute="leading" constant="30" id="xW8-sa-fK6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contractAddressTextField" destination="oAC-29-Zsq" id="eGX-Cn-bhh"/>
+                        <outlet property="importButton" destination="44H-Um-dZL" id="4oP-b4-vxF"/>
+                        <outlet property="loadingView" destination="oDP-42-8jh" id="C8O-7R-SJU"/>
+                        <outlet property="tokenIdTextField" destination="xmB-vh-Wq4" id="PFu-pk-ZeS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rkz-Cb-VUn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5261" y="499"/>
+        </scene>
     </scenes>
     <resources>
         <image name="questionmark.app" catalog="system" width="128" height="114"/>

@@ -27,6 +27,8 @@
 		DAB4B8DC27B3F55B00FDF90F /* NFTsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8DB27B3F55B00FDF90F /* NFTsViewController.swift */; };
 		DAB4B8DE27B3F57500FDF90F /* NFTsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8DD27B3F57500FDF90F /* NFTsViewModel.swift */; };
 		DAB4B8E027B406F300FDF90F /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8DF27B406F300FDF90F /* NFT.swift */; };
+		DAB4B8E627B41E9F00FDF90F /* ImportNFTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8E527B41E9F00FDF90F /* ImportNFTViewController.swift */; };
+		DAB4B8E827B41EAA00FDF90F /* ImportNFTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8E727B41EAA00FDF90F /* ImportNFTViewModel.swift */; };
 		DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */; };
 		DAC468FF27A2AADC00893C26 /* MnemonicPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */; };
 		DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */; };
@@ -65,6 +67,8 @@
 		DAB4B8DB27B3F55B00FDF90F /* NFTsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTsViewController.swift; sourceTree = "<group>"; };
 		DAB4B8DD27B3F57500FDF90F /* NFTsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTsViewModel.swift; sourceTree = "<group>"; };
 		DAB4B8DF27B406F300FDF90F /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
+		DAB4B8E527B41E9F00FDF90F /* ImportNFTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportNFTViewController.swift; sourceTree = "<group>"; };
+		DAB4B8E727B41EAA00FDF90F /* ImportNFTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportNFTViewModel.swift; sourceTree = "<group>"; };
 		DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewController.swift; sourceTree = "<group>"; };
 		DAC468FE27A2AADC00893C26 /* MnemonicPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewModel.swift; sourceTree = "<group>"; };
 		DAC4690127A2BC5C00893C26 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				DAC4690027A2BC3C00893C26 /* Balance */,
 				DAC4690C27A406C100893C26 /* SendBalance */,
 				DAB4B8DA27B3F52E00FDF90F /* NFTs */,
+				DAB4B8E427B41E8000FDF90F /* ImportNFT */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -217,6 +222,15 @@
 				DAB4B8DD27B3F57500FDF90F /* NFTsViewModel.swift */,
 			);
 			path = NFTs;
+			sourceTree = "<group>";
+		};
+		DAB4B8E427B41E8000FDF90F /* ImportNFT */ = {
+			isa = PBXGroup;
+			children = (
+				DAB4B8E527B41E9F00FDF90F /* ImportNFTViewController.swift */,
+				DAB4B8E727B41EAA00FDF90F /* ImportNFTViewModel.swift */,
+			);
+			path = ImportNFT;
 			sourceTree = "<group>";
 		};
 		DAC468FB27A2A93000893C26 /* MnemonicPhrase */ = {
@@ -354,6 +368,7 @@
 				DAA630FB27A1A027004191DB /* Wallet.swift in Sources */,
 				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
 				DAB4B8DE27B3F57500FDF90F /* NFTsViewModel.swift in Sources */,
+				DAB4B8E627B41E9F00FDF90F /* ImportNFTViewController.swift in Sources */,
 				DAC4690227A2BC5C00893C26 /* BalanceViewController.swift in Sources */,
 				DAC4691327A4136D00893C26 /* WalletsViewController.swift in Sources */,
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
@@ -368,6 +383,7 @@
 				DAC4691027A406E400893C26 /* SendBalanceViewModel.swift in Sources */,
 				DAC4691F27A42A4A00893C26 /* Collection.swift in Sources */,
 				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
+				DAB4B8E827B41EAA00FDF90F /* ImportNFTViewModel.swift in Sources */,
 				DAC4691A27A41F3400893C26 /* WalletsTableViewCell.swift in Sources */,
 				DAB4B8DC27B3F55B00FDF90F /* NFTsViewController.swift in Sources */,
 				DA21600C27A0343D0076BBA0 /* CreateWalletViewModel.swift in Sources */,
