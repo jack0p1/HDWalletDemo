@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -110,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HX6-rx-fMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="98"/>
+            <point key="canvasLocation" x="938" y="-254"/>
         </scene>
         <!--Mnemonic Phrase View Controller-->
         <scene sceneID="hRv-MF-1B1">
@@ -333,16 +334,34 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4R-JZ-5op">
-                                <rect key="frame" x="130.5" y="399" width="153.5" height="40.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Send balance">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="sendBalancePressed:" destination="uil-ha-M1O" eventType="touchUpInside" id="sc3-5w-Djc"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bvf-WO-M2r">
+                                <rect key="frame" x="130.5" y="399" width="153.5" height="101"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4R-JZ-5op">
+                                        <rect key="frame" x="0.0" y="0.0" width="153.5" height="40.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Send balance">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendBalancePressed:" destination="uil-ha-M1O" eventType="touchUpInside" id="sc3-5w-Djc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo1-Cm-g6f">
+                                        <rect key="frame" x="0.0" y="60.5" width="153.5" height="40.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="NFTs">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nftsPressed:" destination="uil-ha-M1O" eventType="touchUpInside" id="Dqx-zU-2IO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Jo1-Cm-g6f" firstAttribute="width" secondItem="h4R-JZ-5op" secondAttribute="width" id="MAs-VV-SZ3"/>
+                                </constraints>
+                            </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WvV-mL-RzF">
                                 <rect key="frame" x="188.5" y="302" width="37" height="37"/>
                             </activityIndicatorView>
@@ -351,12 +370,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VKt-Ep-MS1" firstAttribute="trailing" secondItem="cri-Dv-pmG" secondAttribute="trailing" constant="30" id="0ah-iq-bh8"/>
-                            <constraint firstItem="h4R-JZ-5op" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="13K-8y-UCQ"/>
+                            <constraint firstItem="bvf-WO-M2r" firstAttribute="top" secondItem="cri-Dv-pmG" secondAttribute="bottom" constant="80" id="Hjx-dB-gtv"/>
                             <constraint firstItem="cri-Dv-pmG" firstAttribute="top" secondItem="VKt-Ep-MS1" secondAttribute="top" constant="50" id="QC7-np-Ziz"/>
+                            <constraint firstItem="bvf-WO-M2r" firstAttribute="top" secondItem="WvV-mL-RzF" secondAttribute="bottom" constant="60" id="RBJ-yv-FNk"/>
                             <constraint firstItem="cri-Dv-pmG" firstAttribute="leading" secondItem="VKt-Ep-MS1" secondAttribute="leading" constant="30" id="XUv-ks-NzU"/>
-                            <constraint firstItem="h4R-JZ-5op" firstAttribute="top" secondItem="cri-Dv-pmG" secondAttribute="bottom" constant="80" id="bj1-qz-z69"/>
                             <constraint firstItem="WvV-mL-RzF" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="c9u-aJ-fC4"/>
-                            <constraint firstItem="h4R-JZ-5op" firstAttribute="top" secondItem="WvV-mL-RzF" secondAttribute="bottom" constant="60" id="cnf-2Q-r0d"/>
+                            <constraint firstItem="bvf-WO-M2r" firstAttribute="centerX" secondItem="2za-cp-u2G" secondAttribute="centerX" id="hpY-nG-FMz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -370,6 +389,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qh-Mp-riN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3529" y="98"/>
+        </scene>
+        <!--Ts View Controller-->
+        <scene sceneID="gZl-Vq-Etq">
+            <objects>
+                <viewController storyboardIdentifier="NFTsViewController" id="0Vj-fc-EQI" customClass="NFTsViewController" customModule="HDWalletDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zNr-q2-mrr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rinkeby network" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gd-ah-w8w">
+                                <rect key="frame" x="16" y="44" width="126" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5uE-fV-vaM">
+                                <rect key="frame" x="0.0" y="84.5" width="414" height="627.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nftTableViewCell" textLabel="cF9-H9-ZMq" imageView="stU-GN-1nS" style="IBUITableViewCellStyleDefault" id="EeE-sG-5jY">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EeE-sG-5jY" id="1S9-ax-c3r">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No NFTs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cF9-H9-ZMq">
+                                                    <rect key="frame" x="57.5" y="0.0" width="336.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stU-GN-1nS">
+                                                    <rect key="frame" x="18" y="10" width="24.5" height="23.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <imageReference key="image" image="questionmark.app" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                                                        <hierarchicalColors>
+                                                            <color systemColor="labelColor"/>
+                                                            <color systemColor="secondaryLabelColor"/>
+                                                            <color systemColor="tertiaryLabelColor"/>
+                                                        </hierarchicalColors>
+                                                    </imageReference>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJm-sk-PUv">
+                                <rect key="frame" x="126.5" y="747" width="161" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Import an NFT">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="importNFTPressed:" destination="0Vj-fc-EQI" eventType="touchUpInside" id="2bu-FZ-vwU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gga-J6-2R0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4gd-ah-w8w" firstAttribute="leading" secondItem="Gga-J6-2R0" secondAttribute="leading" constant="16" id="5S9-5M-GRo"/>
+                            <constraint firstItem="5uE-fV-vaM" firstAttribute="leading" secondItem="Gga-J6-2R0" secondAttribute="leading" id="9ee-tb-mUl"/>
+                            <constraint firstItem="Gga-J6-2R0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4gd-ah-w8w" secondAttribute="trailing" id="Qd1-1f-1C0"/>
+                            <constraint firstItem="PJm-sk-PUv" firstAttribute="top" secondItem="5uE-fV-vaM" secondAttribute="bottom" constant="35" id="WVg-73-InL"/>
+                            <constraint firstItem="Gga-J6-2R0" firstAttribute="trailing" secondItem="5uE-fV-vaM" secondAttribute="trailing" id="bFv-4L-aRR"/>
+                            <constraint firstItem="Gga-J6-2R0" firstAttribute="bottom" secondItem="5uE-fV-vaM" secondAttribute="bottom" constant="150" id="jzG-qE-ho4"/>
+                            <constraint firstItem="4gd-ah-w8w" firstAttribute="top" secondItem="Gga-J6-2R0" secondAttribute="top" id="lvh-Lq-fFX"/>
+                            <constraint firstItem="5uE-fV-vaM" firstAttribute="top" secondItem="4gd-ah-w8w" secondAttribute="bottom" constant="20" id="mwZ-BX-STd"/>
+                            <constraint firstItem="PJm-sk-PUv" firstAttribute="centerX" secondItem="zNr-q2-mrr" secondAttribute="centerX" id="u3Q-Wh-Ffm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5uE-fV-vaM" id="XX7-CV-YrM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFv-ge-AvK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4415" y="499"/>
         </scene>
         <!--Import Wallet View Controller-->
         <scene sceneID="Qlb-ga-8mM">
@@ -447,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANs-Os-8xi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="789"/>
+            <point key="canvasLocation" x="938" y="529"/>
         </scene>
         <!--Send Balance View Controller-->
         <scene sceneID="e5y-3Q-Lbd">
@@ -550,12 +651,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPw-Av-Nrm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4439" y="98"/>
+            <point key="canvasLocation" x="4429" y="-186"/>
         </scene>
     </scenes>
     <resources>
+        <image name="questionmark.app" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

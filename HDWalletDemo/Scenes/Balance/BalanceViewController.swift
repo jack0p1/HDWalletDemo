@@ -66,4 +66,8 @@ class BalanceViewController: UIViewController {
     @IBAction func sendBalancePressed(_ sender: UIButton) {
         viewModel.routeToSendBalance()
     }
+    
+    @IBAction func nftsPressed(_ sender: UIButton) {
+        viewModel.routeToNFTs()
+    }
 }

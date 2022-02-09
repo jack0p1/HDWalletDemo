@@ -61,4 +61,8 @@ class BalanceViewModel {
     func routeToSendBalance() {
         router.trigger(.sendBalance(wallet: wallet))
     }
+    
+    func routeToNFTs() {
+        router.trigger(.nfts)
+    }
 }

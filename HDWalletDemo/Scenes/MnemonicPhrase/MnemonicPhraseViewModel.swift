@@ -9,7 +9,7 @@ import Foundation
 import XCoordinator
 
 class MnemonicPhraseViewModel {
-    let router: UnownedRouter<MainFlow>
+    private let router: UnownedRouter<MainFlow>
     
     var mnemonics: String? {
         AccountManager.shared.mnemonics
