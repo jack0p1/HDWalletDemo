@@ -18,12 +18,15 @@ class ImportNFTViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        importButton.isEnabled = true
     }
     
     private func setupView() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
+        contractAddressTextField.delegate = self
+        tokenIdTextField.delegate = self
     }
     
     @objc private func hideKeyboard() {
@@ -35,5 +38,19 @@ class ImportNFTViewController: UIViewController {
               let tokenId = tokenIdTextField.text else { return }
         importButton.isEnabled = false
         loadingView.startAnimating()
+        
+        viewModel.importNFT(contractAddress: contractAddress, tokenID: tokenId) { [weak self] in
+            print($0)
+            
+            self?.loadingView.stopAnimating()
+        }
+    }
+}
+
+extension ImportNFTViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        importButton.isEnabled = !newString.isEmpty
+        return true
     }
 }

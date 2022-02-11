@@ -9,9 +9,15 @@ import Foundation
 import XCoordinator
 
 class ImportNFTViewModel {
-    let router: UnownedRouter<MainFlow>
+    private let router: UnownedRouter<MainFlow>
+    private let wallet: Wallet
     
-    init(router: UnownedRouter<MainFlow>) {
+    init(router: UnownedRouter<MainFlow>, wallet: Wallet) {
         self.router = router
+        self.wallet = wallet
+    }
+    
+    func importNFT(contractAddress: String, tokenID: String, completion: @escaping (String?) -> Void) {
+        DataManager.shared.importNFT(owner: wallet, contractAddress: contractAddress, tokenID: tokenID, completion: completion)
     }
 }

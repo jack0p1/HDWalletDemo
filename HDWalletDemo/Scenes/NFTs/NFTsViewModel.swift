@@ -10,15 +10,17 @@ import XCoordinator
 
 class NFTsViewModel: NSObject {
     private let router: UnownedRouter<MainFlow>
+    private let wallet: Wallet
     
     var nfts: [NFT] = []
     
-    init(router: UnownedRouter<MainFlow>) {
+    init(router: UnownedRouter<MainFlow>, wallet: Wallet) {
         self.router = router
+        self.wallet = wallet
     }
     
     func routeToImportNFT() {
-        router.trigger(.importNft)
+        router.trigger(.importNft(wallet: wallet))
     }
 }
 

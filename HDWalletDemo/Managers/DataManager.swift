@@ -10,6 +10,19 @@ import web3swift
 import KeychainSwift
 import BigInt
 
+enum TokenStandard {
+    case erc721, erc1155
+    
+    var interfaceId: String {
+        switch self {
+        case .erc721:
+            return "0x80ac58cd"
+        case .erc1155:
+            return "0xd9b67a26"
+        }
+    }
+}
+
 class DataManager {
     static let shared = DataManager()
         
@@ -295,7 +308,66 @@ class DataManager {
         }
     }
     
+    func importNFT(owner wallet: Wallet, contractAddress: String, tokenID: String, completion: @escaping (String?) -> Void) {
+        guard let web3 = web3RinkebyInstance,
+              let contractAddress = EthereumAddress(contractAddress) else { return }
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self,
+                  let tokenStandard = self.getTokenStandard(for: contractAddress) else { return }
+                                    
+            let abi = tokenStandard == .erc721 ? Web3.Utils.erc721ABI : ABI.erc1155ABI
+            let contract = web3.contract(abi, at: contractAddress)!
+            let method = tokenStandard == .erc721 ? "tokenURI" : "uri"
+            let tokenId = BigUInt(stringLiteral: tokenID)
+            var imageURL: String?
+            do {
+                let transactionOptions = TransactionOptions.defaultOptions
+                let result = try contract.read(method, parameters: [tokenId] as [AnyObject], extraData: Data(), transactionOptions: transactionOptions)!.call()
+                guard let res = result["0"] as? String else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
+                imageURL = res
+            } catch {
+                if let error = error as? Web3Error {
+                    print(error.errorDescription)
+                }
+                completion(nil)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(imageURL)
+            }
+        }
+    }
+    
     // MARK: - Private methods
+    private func getTokenStandard(for contractAddress: EthereumAddress) -> TokenStandard? {
+        guard let web3 = web3RinkebyInstance else { return nil }
+        let contract = web3.contract(ABI.erc165ABI, at: contractAddress)!
+        let transactionOptions = TransactionOptions.defaultOptions
+        
+        do {
+            let erc721Result = try contract.read("supportsInterface", parameters: [TokenStandard.erc721.interfaceId] as [AnyObject], extraData: Data(), transactionOptions: transactionOptions)!.call()
+            guard let supportsERC721 = erc721Result["0"] as? Bool else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
+            
+            let erc1155Result = try contract.read("supportsInterface", parameters: [TokenStandard.erc1155.interfaceId] as [AnyObject], extraData: Data(), transactionOptions: transactionOptions)!.call()
+            guard let supportsERC1155 = erc1155Result["0"] as? Bool else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
+            
+            if supportsERC721 {
+                return TokenStandard.erc721
+            } else if supportsERC1155 {
+                return TokenStandard.erc1155
+            } else {
+                return nil
+            }
+        } catch {
+            if let error = error as? Web3Error {
+                print(error.errorDescription)
+            }
+            return nil
+        }
+    }
+    
     private func initializeWeb3(completion: @escaping (() -> Void)) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
