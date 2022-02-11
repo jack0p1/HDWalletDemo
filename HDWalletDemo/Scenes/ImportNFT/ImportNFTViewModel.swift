@@ -7,6 +7,7 @@
 
 import Foundation
 import XCoordinator
+import web3swift
 
 class ImportNFTViewModel {
     private let router: UnownedRouter<MainFlow>
@@ -17,7 +18,7 @@ class ImportNFTViewModel {
         self.wallet = wallet
     }
     
-    func importNFT(contractAddress: String, tokenID: String, completion: @escaping () -> Void) {
+    func importNFT(contractAddress: String, tokenID: String, completion: @escaping (Web3Error?) -> Void) {
         DataManager.shared.importNFT(owner: wallet, contractAddress: contractAddress, tokenID: tokenID, completion: completion)
     }
     

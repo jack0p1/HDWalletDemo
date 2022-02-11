@@ -309,40 +309,48 @@ class DataManager {
         }
     }
     
-    func importNFT(owner wallet: Wallet, contractAddress: String, tokenID: String, completion: @escaping () -> Void) {
+    func importNFT(owner wallet: Wallet, contractAddress: String, tokenID: String, completion: @escaping (Web3Error?) -> Void) {
         guard let web3 = web3RinkebyInstance,
               let contractAddress = EthereumAddress(contractAddress) else { return }
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self,
-                  let tokenStandard = self.getTokenStandard(for: contractAddress) else { return }
-                                    
-            let abi = tokenStandard == .erc721 ? Web3.Utils.erc721ABI : ABI.erc1155ABI
-            let contract = web3.contract(abi, at: contractAddress)!
-            let method = tokenStandard == .erc721 ? "tokenURI" : "uri"
-            let tokenId = BigUInt(stringLiteral: tokenID)
-            var metadataUrlString: String
-            do {
-                let transactionOptions = TransactionOptions.defaultOptions
-                let result = try contract.read(method, parameters: [tokenId] as [AnyObject], extraData: Data(), transactionOptions: transactionOptions)!.call()
-                guard let res = result["0"] as? String else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
-                metadataUrlString = res
-            } catch {
-                if let error = error as? Web3Error {
-                    print(error.errorDescription)
-                }
-                completion()
-                return
-            }
+            guard let self = self else { return }
             
-
-            self.getNFTMetadata(from: metadataUrlString, tokenId: tokenID) {
-                if let metadata = $0 {
-                    if !AccountManager.shared.nfts.contains(metadata) {
-                        AccountManager.shared.nfts.append(metadata)
+            let tokenStandardCheckResult = self.getTokenStandard(for: contractAddress)
+            
+            switch tokenStandardCheckResult {
+            case .failure(let error):
+                completion(error)
+                return
+                
+            case .success(let tokenStandard):
+                let abi = tokenStandard == .erc721 ? Web3.Utils.erc721ABI : ABI.erc1155ABI
+                let contract = web3.contract(abi, at: contractAddress)!
+                let method = tokenStandard == .erc721 ? "tokenURI" : "uri"
+                let tokenId = BigUInt(stringLiteral: tokenID)
+                var metadataUrlString: String
+                do {
+                    let transactionOptions = TransactionOptions.defaultOptions
+                    let result = try contract.read(method, parameters: [tokenId] as [AnyObject], extraData: Data(), transactionOptions: transactionOptions)!.call()
+                    guard let res = result["0"] as? String else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
+                    metadataUrlString = res
+                } catch {
+                    if let error = error as? Web3Error {
+                        print(error.errorDescription)
+                        completion(error)
                     }
+                    return
                 }
-                completion()
+                
+
+                self.getNFTMetadata(from: metadataUrlString, tokenId: tokenID) {
+                    if let metadata = $0 {
+                        if !AccountManager.shared.nfts.contains(metadata) {
+                            AccountManager.shared.nfts.append(metadata)
+                        }
+                    }
+                    completion(nil)
+                }
             }
         }
     }
@@ -362,8 +370,8 @@ class DataManager {
         }
     }
     
-    private func getTokenStandard(for contractAddress: EthereumAddress) -> TokenStandard? {
-        guard let web3 = web3RinkebyInstance else { return nil }
+    private func getTokenStandard(for contractAddress: EthereumAddress) -> Result<TokenStandard, Web3Error> {
+        guard let web3 = web3RinkebyInstance else { return .failure(Web3Error.processingError(desc: "Couldn't connect to Web3.")) }
         let contract = web3.contract(ABI.erc165ABI, at: contractAddress)!
         let transactionOptions = TransactionOptions.defaultOptions
         
@@ -375,17 +383,17 @@ class DataManager {
             guard let supportsERC1155 = erc1155Result["0"] as? Bool else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
             
             if supportsERC721 {
-                return TokenStandard.erc721
+                return .success(TokenStandard.erc721)
             } else if supportsERC1155 {
-                return TokenStandard.erc1155
+                return .success(TokenStandard.erc1155)
             } else {
-                return nil
+                return .failure(Web3Error.processingError(desc: "Unsupported token standard."))
             }
         } catch {
-            if let error = error as? Web3Error {
-                print(error.errorDescription)
-            }
-            return nil
+            let web3Error = error as? Web3Error ?? Web3Error.processingError(desc: "Unknown error.")
+            print(web3Error.errorDescription)
+            
+            return .failure(web3Error)
         }
     }
     
