@@ -10,4 +10,5 @@ import Foundation
 extension Notification.Name {
     static let importedWallet = Notification.Name(rawValue: "importedWallet")
     static let sentBalance = Notification.Name(rawValue: "sentBalance")
+    static let importedNFT = Notification.Name(rawValue: "importedNFT")
 }

@@ -40,9 +40,10 @@ class ImportNFTViewController: UIViewController {
         loadingView.startAnimating()
         
         viewModel.importNFT(contractAddress: contractAddress, tokenID: tokenId) { [weak self] in
-            print($0)
+            NotificationCenter.default.post(name: .importedNFT, object: nil)
             
             self?.loadingView.stopAnimating()
+            self?.viewModel.routeBack()
         }
     }
 }

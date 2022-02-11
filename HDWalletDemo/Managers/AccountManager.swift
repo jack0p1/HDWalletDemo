@@ -14,20 +14,35 @@ class AccountManager {
     private let walletKey = "wallet"
     private let mnemonicsKey = "mnemonics"
     private let passwordKey = "password"
-    private let allWalletsKeys = "allWallets"
+    private let allWalletsKey = "allWallets"
+    private let nftsKey = "nfts"
     private let keychain = KeychainSwift()
     
     private init() { }
     
+    var nfts: [NFTMetadata] {
+        get {
+            guard let data = keychain.getData(nftsKey),
+                  let nfts = try? JSONDecoder().decode([NFTMetadata].self, from: data) else { return [] }
+            return nfts
+        }
+        set {
+            let data = try! JSONEncoder().encode(newValue)
+            if !keychain.set(data, forKey: nftsKey) {
+                print("Couldn't save NFTs.")
+            }
+        }
+    }
+    
     var allWallets: [Wallet] {
         get {
-            guard let data = keychain.getData(allWalletsKeys),
+            guard let data = keychain.getData(allWalletsKey),
                   let wallets = try? JSONDecoder().decode([Wallet].self, from: data) else { return [] }
             return wallets
         }
         set {
             let data = try! JSONEncoder().encode(newValue)
-            if !keychain.set(data, forKey: allWalletsKeys) {
+            if !keychain.set(data, forKey: allWalletsKey) {
                 print("Couldn't save all wallets.")
             }
         }

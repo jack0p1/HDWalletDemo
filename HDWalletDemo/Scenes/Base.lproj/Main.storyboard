@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -404,43 +403,8 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5uE-fV-vaM">
-                                <rect key="frame" x="0.0" y="84.5" width="414" height="627.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nftTableViewCell" textLabel="cF9-H9-ZMq" imageView="stU-GN-1nS" style="IBUITableViewCellStyleDefault" id="EeE-sG-5jY">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EeE-sG-5jY" id="1S9-ax-c3r">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No NFTs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cF9-H9-ZMq">
-                                                    <rect key="frame" x="57.5" y="0.0" width="336.5" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stU-GN-1nS">
-                                                    <rect key="frame" x="18" y="10" width="24.5" height="23.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <imageReference key="image" image="questionmark.app" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
-                                                        <hierarchicalColors>
-                                                            <color systemColor="labelColor"/>
-                                                            <color systemColor="secondaryLabelColor"/>
-                                                            <color systemColor="tertiaryLabelColor"/>
-                                                        </hierarchicalColors>
-                                                    </imageReference>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJm-sk-PUv">
-                                <rect key="frame" x="126.5" y="747" width="161" height="41"/>
+                                <rect key="frame" x="126.5" y="746" width="161" height="41"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Import an NFT">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
@@ -449,23 +413,27 @@
                                     <action selector="importNFTPressed:" destination="0Vj-fc-EQI" eventType="touchUpInside" id="2bu-FZ-vwU"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-kp-LjE">
+                                <rect key="frame" x="0.0" y="74.5" width="414" height="651.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gga-J6-2R0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="aA9-kp-LjE" firstAttribute="leading" secondItem="Gga-J6-2R0" secondAttribute="leading" id="4RF-JX-jLo"/>
                             <constraint firstItem="4gd-ah-w8w" firstAttribute="leading" secondItem="Gga-J6-2R0" secondAttribute="leading" constant="16" id="5S9-5M-GRo"/>
-                            <constraint firstItem="5uE-fV-vaM" firstAttribute="leading" secondItem="Gga-J6-2R0" secondAttribute="leading" id="9ee-tb-mUl"/>
+                            <constraint firstItem="Gga-J6-2R0" firstAttribute="trailing" secondItem="aA9-kp-LjE" secondAttribute="trailing" id="Pde-wR-rj3"/>
                             <constraint firstItem="Gga-J6-2R0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4gd-ah-w8w" secondAttribute="trailing" id="Qd1-1f-1C0"/>
-                            <constraint firstItem="PJm-sk-PUv" firstAttribute="top" secondItem="5uE-fV-vaM" secondAttribute="bottom" constant="35" id="WVg-73-InL"/>
-                            <constraint firstItem="Gga-J6-2R0" firstAttribute="trailing" secondItem="5uE-fV-vaM" secondAttribute="trailing" id="bFv-4L-aRR"/>
-                            <constraint firstItem="Gga-J6-2R0" firstAttribute="bottom" secondItem="5uE-fV-vaM" secondAttribute="bottom" constant="150" id="jzG-qE-ho4"/>
+                            <constraint firstItem="PJm-sk-PUv" firstAttribute="top" secondItem="aA9-kp-LjE" secondAttribute="bottom" constant="20" id="Uv9-8x-EJa"/>
+                            <constraint firstItem="Gga-J6-2R0" firstAttribute="bottom" secondItem="PJm-sk-PUv" secondAttribute="bottom" constant="75" id="YdN-7J-N5H"/>
+                            <constraint firstItem="aA9-kp-LjE" firstAttribute="top" secondItem="4gd-ah-w8w" secondAttribute="bottom" constant="10" id="kA4-QQ-iqT"/>
                             <constraint firstItem="4gd-ah-w8w" firstAttribute="top" secondItem="Gga-J6-2R0" secondAttribute="top" id="lvh-Lq-fFX"/>
-                            <constraint firstItem="5uE-fV-vaM" firstAttribute="top" secondItem="4gd-ah-w8w" secondAttribute="bottom" constant="20" id="mwZ-BX-STd"/>
                             <constraint firstItem="PJm-sk-PUv" firstAttribute="centerX" secondItem="zNr-q2-mrr" secondAttribute="centerX" id="u3Q-Wh-Ffm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="5uE-fV-vaM" id="XX7-CV-YrM"/>
+                        <outlet property="tableView" destination="aA9-kp-LjE" id="tkC-yf-ABc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFv-ge-AvK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -731,18 +699,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="questionmark.app" catalog="system" width="128" height="114"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

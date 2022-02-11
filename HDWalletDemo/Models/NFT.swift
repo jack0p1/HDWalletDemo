@@ -7,11 +7,8 @@
 
 import UIKit
 
-struct NFT {
-    let contractAddress: String
-    let tokenId: String
+struct NFT: Equatable {
     let name: String
     let imageUrl: URL
-    
     var image: UIImage?
 }

@@ -5,10 +5,11 @@
 //  Created by Jacek Kopaczel on 26/01/2022.
 //
 
-import Foundation
 import web3swift
 import KeychainSwift
 import BigInt
+import UIKit
+import Alamofire
 
 enum TokenStandard {
     case erc721, erc1155
@@ -308,7 +309,7 @@ class DataManager {
         }
     }
     
-    func importNFT(owner wallet: Wallet, contractAddress: String, tokenID: String, completion: @escaping (String?) -> Void) {
+    func importNFT(owner wallet: Wallet, contractAddress: String, tokenID: String, completion: @escaping () -> Void) {
         guard let web3 = web3RinkebyInstance,
               let contractAddress = EthereumAddress(contractAddress) else { return }
         
@@ -320,27 +321,47 @@ class DataManager {
             let contract = web3.contract(abi, at: contractAddress)!
             let method = tokenStandard == .erc721 ? "tokenURI" : "uri"
             let tokenId = BigUInt(stringLiteral: tokenID)
-            var imageURL: String?
+            var metadataUrlString: String
             do {
                 let transactionOptions = TransactionOptions.defaultOptions
                 let result = try contract.read(method, parameters: [tokenId] as [AnyObject], extraData: Data(), transactionOptions: transactionOptions)!.call()
                 guard let res = result["0"] as? String else {throw Web3Error.processingError(desc: "Failed to get result of expected type from the Ethereum node")}
-                imageURL = res
+                metadataUrlString = res
             } catch {
                 if let error = error as? Web3Error {
                     print(error.errorDescription)
                 }
-                completion(nil)
+                completion()
                 return
             }
             
-            DispatchQueue.main.async {
-                completion(imageURL)
+
+            self.getNFTMetadata(from: metadataUrlString, tokenId: tokenID) {
+                if let metadata = $0 {
+                    if !AccountManager.shared.nfts.contains(metadata) {
+                        AccountManager.shared.nfts.append(metadata)
+                    }
+                }
+                completion()
             }
         }
     }
     
     // MARK: - Private methods
+    private func getNFTMetadata(from metadataUrlString: String, tokenId: String, completion: @escaping (NFTMetadata?) -> Void) {
+        var urlString = metadataUrlString.replacingOccurrences(of: "0x{id}", with: tokenId)
+        
+        var urlComponents = URLComponents(string: urlString)
+        urlComponents?.scheme = "https"
+        if let string = urlComponents?.string {
+            urlString = string
+        }
+        
+        AF.request(urlString).responseDecodable(of: NFTMetadata.self) { response in
+            completion(response.value)
+        }
+    }
+    
     private func getTokenStandard(for contractAddress: EthereumAddress) -> TokenStandard? {
         guard let web3 = web3RinkebyInstance else { return nil }
         let contract = web3.contract(ABI.erc165ABI, at: contractAddress)!

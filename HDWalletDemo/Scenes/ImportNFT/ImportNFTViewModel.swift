@@ -17,7 +17,11 @@ class ImportNFTViewModel {
         self.wallet = wallet
     }
     
-    func importNFT(contractAddress: String, tokenID: String, completion: @escaping (String?) -> Void) {
+    func importNFT(contractAddress: String, tokenID: String, completion: @escaping () -> Void) {
         DataManager.shared.importNFT(owner: wallet, contractAddress: contractAddress, tokenID: tokenID, completion: completion)
+    }
+    
+    func routeBack() {
+        router.trigger(.back)
     }
 }

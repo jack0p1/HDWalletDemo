@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		DA03635527B6963800F27892 /* ABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03635427B6963800F27892 /* ABI.swift */; };
+		DA03635727B6996700F27892 /* NFTMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03635627B6996700F27892 /* NFTMetadata.swift */; };
+		DA03635A27B69C1A00F27892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA03635927B69C1A00F27892 /* Alamofire */; };
+		DA03635E27B6AC2900F27892 /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03635D27B6AC2900F27892 /* NFT.swift */; };
+		DA03636127B6BC4800F27892 /* NFTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03635F27B6BC4800F27892 /* NFTTableViewCell.swift */; };
+		DA03636227B6BC4800F27892 /* NFTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA03636027B6BC4800F27892 /* NFTTableViewCell.xib */; };
 		DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = DA216000279B052F0076BBA0 /* XCoordinator */; };
 		DA216004279B05590076BBA0 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = DA216003279B05590076BBA0 /* web3swift */; };
 		DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA216006279B0D9D0076BBA0 /* StartViewModel.swift */; };
@@ -27,7 +32,6 @@
 		DAA630FB27A1A027004191DB /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA630FA27A1A027004191DB /* Wallet.swift */; };
 		DAB4B8DC27B3F55B00FDF90F /* NFTsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8DB27B3F55B00FDF90F /* NFTsViewController.swift */; };
 		DAB4B8DE27B3F57500FDF90F /* NFTsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8DD27B3F57500FDF90F /* NFTsViewModel.swift */; };
-		DAB4B8E027B406F300FDF90F /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8DF27B406F300FDF90F /* NFT.swift */; };
 		DAB4B8E627B41E9F00FDF90F /* ImportNFTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8E527B41E9F00FDF90F /* ImportNFTViewController.swift */; };
 		DAB4B8E827B41EAA00FDF90F /* ImportNFTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B8E727B41EAA00FDF90F /* ImportNFTViewModel.swift */; };
 		DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */; };
@@ -50,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		DA03635427B6963800F27892 /* ABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABI.swift; sourceTree = "<group>"; };
+		DA03635627B6996700F27892 /* NFTMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTMetadata.swift; sourceTree = "<group>"; };
+		DA03635D27B6AC2900F27892 /* NFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
+		DA03635F27B6BC4800F27892 /* NFTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTTableViewCell.swift; sourceTree = "<group>"; };
+		DA03636027B6BC4800F27892 /* NFTTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NFTTableViewCell.xib; sourceTree = "<group>"; };
 		DA216006279B0D9D0076BBA0 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		DA21600927A0342F0076BBA0 /* CreateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewController.swift; sourceTree = "<group>"; };
 		DA21600B27A0343D0076BBA0 /* CreateWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletViewModel.swift; sourceTree = "<group>"; };
@@ -68,7 +76,6 @@
 		DAA630FA27A1A027004191DB /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		DAB4B8DB27B3F55B00FDF90F /* NFTsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTsViewController.swift; sourceTree = "<group>"; };
 		DAB4B8DD27B3F57500FDF90F /* NFTsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTsViewModel.swift; sourceTree = "<group>"; };
-		DAB4B8DF27B406F300FDF90F /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
 		DAB4B8E527B41E9F00FDF90F /* ImportNFTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportNFTViewController.swift; sourceTree = "<group>"; };
 		DAB4B8E727B41EAA00FDF90F /* ImportNFTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportNFTViewModel.swift; sourceTree = "<group>"; };
 		DAC468FC27A2A95A00893C26 /* MnemonicPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA630F527A1968D004191DB /* KeychainSwift in Frameworks */,
+				DA03635A27B69C1A00F27892 /* Alamofire in Frameworks */,
 				DA216001279B052F0076BBA0 /* XCoordinator in Frameworks */,
 				DA216004279B05590076BBA0 /* web3swift in Frameworks */,
 			);
@@ -213,7 +221,8 @@
 			children = (
 				DAA630FA27A1A027004191DB /* Wallet.swift */,
 				DAE2868527A9923C009076BA /* TokenContract.swift */,
-				DAB4B8DF27B406F300FDF90F /* NFT.swift */,
+				DA03635627B6996700F27892 /* NFTMetadata.swift */,
+				DA03635D27B6AC2900F27892 /* NFT.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +232,8 @@
 			children = (
 				DAB4B8DB27B3F55B00FDF90F /* NFTsViewController.swift */,
 				DAB4B8DD27B3F57500FDF90F /* NFTsViewModel.swift */,
+				DA03635F27B6BC4800F27892 /* NFTTableViewCell.swift */,
+				DA03636027B6BC4800F27892 /* NFTTableViewCell.xib */,
 			);
 			path = NFTs;
 			sourceTree = "<group>";
@@ -303,6 +314,7 @@
 				DA216000279B052F0076BBA0 /* XCoordinator */,
 				DA216003279B05590076BBA0 /* web3swift */,
 				DAA630F427A1968D004191DB /* KeychainSwift */,
+				DA03635927B69C1A00F27892 /* Alamofire */,
 			);
 			productName = HDWalletDemo;
 			productReference = DA696CF327999B2C00801F0F /* HDWalletDemo.app */;
@@ -336,6 +348,7 @@
 				DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */,
 				DA216002279B05590076BBA0 /* XCRemoteSwiftPackageReference "web3swift" */,
 				DAA630F327A1968D004191DB /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				DA03635827B69C1A00F27892 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = DA696CF427999B2C00801F0F /* Products */;
 			projectDirPath = "";
@@ -351,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA03636227B6BC4800F27892 /* NFTTableViewCell.xib in Resources */,
 				DAC4691B27A41F3400893C26 /* WalletsTableViewCell.xib in Resources */,
 				DA696D0327999B2D00801F0F /* LaunchScreen.storyboard in Resources */,
 				DA696D0027999B2D00801F0F /* Assets.xcassets in Resources */,
@@ -369,6 +383,7 @@
 				DAA630F827A1972D004191DB /* DataManager.swift in Sources */,
 				DA21600A27A0342F0076BBA0 /* CreateWalletViewController.swift in Sources */,
 				DAA630FB27A1A027004191DB /* Wallet.swift in Sources */,
+				DA03635727B6996700F27892 /* NFTMetadata.swift in Sources */,
 				DA505E3B279AFEDD00D322FD /* MainCoordinator.swift in Sources */,
 				DAB4B8DE27B3F57500FDF90F /* NFTsViewModel.swift in Sources */,
 				DAB4B8E627B41E9F00FDF90F /* ImportNFTViewController.swift in Sources */,
@@ -377,14 +392,15 @@
 				DA696CF727999B2C00801F0F /* AppDelegate.swift in Sources */,
 				DAC4690627A2E83B00893C26 /* AccountManager.swift in Sources */,
 				DA696CF927999B2C00801F0F /* SceneDelegate.swift in Sources */,
-				DAB4B8E027B406F300FDF90F /* NFT.swift in Sources */,
 				DA505E3E279AFF8700D322FD /* UIViewController.swift in Sources */,
 				DAE2868627A9923C009076BA /* TokenContract.swift in Sources */,
 				DAC4690E27A406DB00893C26 /* SendBalanceViewController.swift in Sources */,
+				DA03636127B6BC4800F27892 /* NFTTableViewCell.swift in Sources */,
 				DA03635527B6963800F27892 /* ABI.swift in Sources */,
 				DAC4690B27A32A8900893C26 /* ImportWalletViewModel.swift in Sources */,
 				DA216007279B0D9D0076BBA0 /* StartViewModel.swift in Sources */,
 				DAC4691027A406E400893C26 /* SendBalanceViewModel.swift in Sources */,
+				DA03635E27B6AC2900F27892 /* NFT.swift in Sources */,
 				DAC4691F27A42A4A00893C26 /* Collection.swift in Sources */,
 				DAC468FD27A2A95A00893C26 /* MnemonicPhraseViewController.swift in Sources */,
 				DAB4B8E827B41EAA00FDF90F /* ImportNFTViewModel.swift in Sources */,
@@ -616,6 +632,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA03635827B69C1A00F27892 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/quickbirdstudios/XCoordinator.git";
@@ -643,6 +667,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA03635927B69C1A00F27892 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA03635827B69C1A00F27892 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		DA216000279B052F0076BBA0 /* XCoordinator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA215FFF279B052F0076BBA0 /* XCRemoteSwiftPackageReference "XCoordinator" */;

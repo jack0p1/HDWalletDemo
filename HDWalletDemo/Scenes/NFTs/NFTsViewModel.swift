@@ -12,7 +12,15 @@ class NFTsViewModel: NSObject {
     private let router: UnownedRouter<MainFlow>
     private let wallet: Wallet
     
-    var nfts: [NFT] = []
+    var nfts: [NFT] {
+        get {
+            AccountManager.shared.nfts.map {
+                NFT(name: $0.name, imageUrl: $0.image, image: nil)
+            }
+        } set {
+            
+        }
+    }
     
     init(router: UnownedRouter<MainFlow>, wallet: Wallet) {
         self.router = router
@@ -24,40 +32,43 @@ class NFTsViewModel: NSObject {
     }
 }
 
-extension NFTsViewModel: UITableViewDelegate {
-    
-}
-
 extension NFTsViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         nfts.isEmpty ? 1 : nfts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "nftTableViewCell", for: indexPath)
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NFTTableViewCell.self), for: indexPath) as? NFTTableViewCell else {
+            return UITableViewCell()
+        }
         guard var nft = nfts[safe: indexPath.row] else {
             return cell
         }
         
-        var content = cell.defaultContentConfiguration()
-        content.text = nft.name
+        cell.title = nft.name
         
         if let image = nft.image {
-            content.image = image
+            cell.image = image
         } else {
             DispatchQueue.global(qos: .utility).async {
-                if let data = try? Data(contentsOf: nft.imageUrl) {
+                var imageUrl = nft.imageUrl
+                var urlComponents = URLComponents(url: imageUrl, resolvingAgainstBaseURL: false)
+                urlComponents?.scheme = "https"
+                if let url = urlComponents?.url {
+                    imageUrl = url
+                }
+                
+                if let data = try? Data(contentsOf: imageUrl) {
                     DispatchQueue.main.async {
                         let nftImage = UIImage(data: data)
-                        content.image = nftImage
+                        cell.image = nftImage
                         nft.image = nftImage
+                        self.nfts[indexPath.row] = nft
                     }
                 }
             }
         }
         
-        cell.contentConfiguration = content
         return cell
     }
 }
