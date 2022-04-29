@@ -85,4 +85,8 @@ class AccountManager {
             }
         }
     }
+    
+    func clear() {
+        keychain.clear()
+    }
 }

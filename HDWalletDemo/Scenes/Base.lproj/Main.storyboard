@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -183,14 +183,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-H8-iN8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="638"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QtL-9Y-7lO">
-                                <rect key="frame" x="33" y="747" width="348" height="45"/>
+                                <rect key="frame" x="33" y="717" width="348" height="40.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyH-j6-VAU">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="40.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Create a wallet">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
@@ -200,7 +200,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOG-bb-Wuv">
-                                        <rect key="frame" x="184" y="0.0" width="164" height="45"/>
+                                        <rect key="frame" x="184" y="0.0" width="164" height="40.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Import a wallet">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
@@ -214,19 +214,32 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="A43-K6-WbC">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNp-ix-3el">
+                                <rect key="frame" x="33" y="787.5" width="348" height="44.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="wTX-2w-cyP" eventType="touchUpInside" id="hyq-ht-KkS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tzE-DU-Fj3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="QtL-9Y-7lO" secondAttribute="bottom" constant="70" id="21j-VW-weE"/>
+                            <constraint firstItem="YNp-ix-3el" firstAttribute="leading" secondItem="QtL-9Y-7lO" secondAttribute="leading" id="7BQ-G7-eIO"/>
+                            <constraint firstItem="YNp-ix-3el" firstAttribute="top" secondItem="QtL-9Y-7lO" secondAttribute="bottom" constant="30" id="9SJ-m8-CKN"/>
                             <constraint firstItem="A43-K6-WbC" firstAttribute="centerY" secondItem="7ZR-dM-c9a" secondAttribute="centerY" id="BEI-Ha-Oqt"/>
                             <constraint firstItem="qxE-H8-iN8" firstAttribute="top" secondItem="tzE-DU-Fj3" secondAttribute="top" id="BeY-Td-hYq"/>
                             <constraint firstItem="A43-K6-WbC" firstAttribute="centerX" secondItem="7ZR-dM-c9a" secondAttribute="centerX" id="KHf-TO-pEk"/>
                             <constraint firstItem="tzE-DU-Fj3" firstAttribute="trailing" secondItem="qxE-H8-iN8" secondAttribute="trailing" id="PzV-nS-9Qs"/>
+                            <constraint firstItem="YNp-ix-3el" firstAttribute="trailing" secondItem="QtL-9Y-7lO" secondAttribute="trailing" id="SE5-EO-xJP"/>
                             <constraint firstItem="qxE-H8-iN8" firstAttribute="leading" secondItem="tzE-DU-Fj3" secondAttribute="leading" id="USN-lr-J4T"/>
                             <constraint firstItem="QtL-9Y-7lO" firstAttribute="top" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="35" id="ZnZ-IU-co0"/>
-                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="150" id="b86-rw-PPc"/>
+                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="qxE-H8-iN8" secondAttribute="bottom" constant="180" id="b86-rw-PPc"/>
                             <constraint firstItem="QtL-9Y-7lO" firstAttribute="centerX" secondItem="7ZR-dM-c9a" secondAttribute="centerX" id="kOF-La-uQh"/>
+                            <constraint firstItem="tzE-DU-Fj3" firstAttribute="bottom" secondItem="YNp-ix-3el" secondAttribute="bottom" constant="30" id="wiu-EV-uAY"/>
                         </constraints>
                     </view>
                     <connections>

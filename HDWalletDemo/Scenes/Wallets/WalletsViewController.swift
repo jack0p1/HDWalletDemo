@@ -58,4 +58,8 @@ class WalletsViewController: UIViewController {
     @IBAction func importPressed(_ sender: UIButton) {
         viewModel.routeToImportWallet()
     }
+    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        viewModel.resetAndCloseApp()
+    }
 }

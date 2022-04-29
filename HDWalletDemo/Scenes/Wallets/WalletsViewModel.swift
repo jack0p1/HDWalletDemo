@@ -26,6 +26,12 @@ class WalletsViewModel: NSObject {
     func routeToImportWallet() {
         router.trigger(.importWallet(isAddingAccount: true))
     }
+    
+    func resetAndCloseApp() {
+        AccountManager.shared.clear()
+        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+        exit(1)
+    }
 }
 
 extension WalletsViewModel: UITableViewDelegate {
